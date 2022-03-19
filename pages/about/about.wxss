@@ -1,0 +1,288 @@
+/* 落花 */
+.fllowerbox{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.container {
+  height: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+image {
+  width: 100%;
+  display: block;
+  margin-top: -2rpx;
+}
+
+canvas {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 888;
+}
+
+/* 落花 */
+.TopBox {
+  position: relative;
+  height: 400rpx;
+  margin-bottom: -350rpx;
+  padding: 5%;
+  width: 100%;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2F8e526a633ac7534cf469eddb83a172f34af329e2.png&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636293739&t=560c041331d152d6793e2d664c67f59e");
+  /* background: url("https://img0.baidu.com/it/u=679748065,3950462303&fm=26&fmt=auto"); */
+  /* background: url("https://img0.baidu.com/it/u=3664819822,850193215&fm=26&fmt=auto"); */
+}
+
+/* 用户个性展示区 */
+
+.userBox {
+  position: absolute;
+  z-index: 1;
+  height: 250rpx;
+  padding: 5%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userBox .userImg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  border: 5rpx solid #ffffff;
+  margin-right: 20rpx;
+}
+
+.userBox .delBox {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.userBox .delBox .delTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.userBox .delBox .userName {
+  color: #000;
+  font-weight: 700;
+  font-size: 28rpx;
+}
+
+.userBox .delBox .constellation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #000000;
+  border-radius: 40rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  color: #ffffff;
+  font-size: 24rpx;
+  font-weight: 600;
+  border: solid 1rpx #ffffff;
+}
+
+.userBox .delBox .constellation image {
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 10rpx;
+}
+
+.userBox .delBox .repairBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 40rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  color: #666666;
+  font-size: 24rpx;
+  opacity: 0.8;
+  border: solid 1rpx #cfcdcd;
+}
+
+.userBox .delBox .repairBox image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+}
+
+.userBox .delBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.userBox .delBottom .sign {
+  border-radius: 20rpx;
+  padding: 5rpx;
+  font-size: 26rpx;
+}
+
+.userBox .delBottom .DayNum {
+  color: #000;
+  font-size: 26rpx;
+}
+
+/* 应用区 */
+
+.application {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 700rpx;
+  background: #ffffff;
+  border-radius: 40rpx;
+  margin-top: 270rpx;
+}
+
+/* 数据锦集 */
+.dataBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5%;
+}
+
+.dataBox .box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.dataBox .box image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.dataBox .box .dataTitle {
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.dataBox .itemBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  font-weight: 550;
+  width: 90%;
+}
+
+.dataBox .itemBox .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #9e6dfa;
+  color: #ffffff;
+  padding: 4%;
+  border-radius: 15rpx;
+}
+
+.dataBox .itemBox .item .name {
+  margin-top: 15rpx;
+}
+
+/* <!-- 应用区1 --> */
+.line {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  height: 20rpx;
+  background-color: #eceaea;
+}
+
+.appPlay {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5%;
+}
+
+.appPlay .itemBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  font-weight: 540;
+  width: 100%;
+}
+
+.appPlay .itemBox .item {
+  width: 92%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4%;
+  border-radius: 15rpx;
+}
+
+.appPlay .itemBox .item image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.appPlay .itemBox .item .name {
+  margin-top: 20rpx;
+}
+
+/* 今日数据 */
+.dataBox .numBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.dataBox .numBox .numItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  font-size: 30rpx;
+}
+
+.dataBox .numBox .numItem .num {
+  font-size: 32rpx;
+  font-weight: 700;
+  margin: 25rpx;
+}
+
+.dataBox .numBox .numItem .yesterday {
+  font-size: 26rpx;
+}
+
+.dataBox .numBox .line {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 15rpx;
+  height: 150rpx;
+  background-color: #eceaea;
+}

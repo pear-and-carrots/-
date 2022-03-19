@@ -1,0 +1,15 @@
+<view class="userList" wx:for="{{list}}" wx:if="{{list.length !== 0}}" bindtap="goToPersonal" data-userId="{{item.userId}}">
+  <image wx:if="{{item.photo.length === 0||item.photo === null}}" src="../../images/小花.png"></image>
+  <image src="{{item.photo}}"></image>
+  <view class="box">
+    <view class="userName">{{item.name}}</view>
+    <view class="userSign"><text wx:if="{{item.selfSign.length !== 0 && item.selfSign !== null}}">{{item.selfSign}}</text> <text wx:if="{{item.selfSign.length === 0 ||item.selfSign === null}}">对方很懒，啥也没写</text></view>
+  </view>
+</view>
+<!-- 暂无更多内容 -->
+<view class="none" wx:if="{{list.length === 0 || list === null}}">
+  <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634729254117.png"></image>
+  <view>
+    暂无更多内容
+  </view>
+</view>

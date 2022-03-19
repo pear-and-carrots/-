@@ -1,0 +1,8 @@
+<!-- 顶部搜索 -->
+<view class="searchBox">
+  <view class="input">
+    <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634725319247.png"></image>
+    <input placeholder="搜索用户、动态、设计稿" bindinput="input" />
+  </view>
+  <view class="searchText" bindtap="search">搜索</view>
+</view>

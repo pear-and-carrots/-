@@ -1,0 +1,192 @@
+<image class="topImg" bindtap="return"
+  src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636555143309.png"></image>
+<view class="TopBox">
+  <view id="clouds">
+    <view class="cloud x1"></view>
+    <view class="cloud x2"></view>
+    <view class="cloud x3"></view>
+    <view class="cloud x4"></view>
+    <view class="cloud x5"></view>
+  </view>
+</view>
+<view class="box">
+  <view class="userBox">
+    <view class="topBox">
+      <view class="userImg">
+        <image class="img1" wx:if="{{userList.gender === '男' || user.gender === null}}"
+          src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634729818826.png"></image>
+        <image class="img1" wx:if="{{userList.gender === '女'}}"
+          src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634729834276.png"></image>
+        <image class="img2" src="{{userList.photo}}"></image>
+      </view>
+      <view class="userName">{{userList.name}}</view>
+      <view class="{{userList.isFollow === false?'focus':'focus1'}}" bindtap="followPeople">
+        <text wx:if="{{userList.isFollow === false}}"> + 关注</text>
+        <text wx:if="{{userList.isFollow === true}}">已关注</text>
+      </view>
+      <image class="direct" bindtap="search"
+        src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1635041328902.png"></image>
+    </view>
+    <view class="bottomBox">
+      {{userList.selfSign}}
+    </view>
+    <view class="messageBox">
+      <view class="messageItem">
+        <view class="itemNum">{{userList.fans}}</view>
+        <view class="itemName">粉丝</view>
+      </view>
+      <view class="line"></view>
+      <view class="messageItem">
+        <view class="itemNum">{{userList.follows}}</view>
+        <view class="itemName">关注</view>
+      </view>
+      <view class="line"></view>
+      <view class="messageItem">
+        <view class="itemNum">{{userList.supports}}</view>
+        <view class="itemName">获赞</view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <!-- 他的所有帖子 -->
+  <view class="allArticle">
+    <view class="Title">他的所有帖子</view>
+    <!-- 文章列表 -->
+    <view class="article" wx:for="{{list}}" wx:key="{{index}}">
+      <view class="userBox">
+        <view class="topBoxLeft">
+          <!-- 用户头像 -->
+          <image bindtap="goToPersonal" data-userId="{{item.userId}}" class="userImg" src="{{item.photo}}"></image>
+          <view class="userDetail">
+            <view class="userName">
+              {{item.name}}
+            </view>
+            <view class="time">
+              {{item.createTime}} 发表
+            </view>
+          </view>
+        </view>
+        <!-- 菜单 -->
+        <image class="topBoxImg" data-userid="{{item.userId}}" data-authortitle="{{item.title}}"
+          data-author="{{item.name}}" bindtap="bindMenu"
+          src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634727351917.png"></image>
+      </view>
+      <view bindtap="gotoDetail" data-artticleSign="{{item.artticleSign}}" class="articleListDetail"
+        data-artticlesign="{{item.artticleSign}}" data-articleId="{{item.articleId}}">
+        <view class="title">
+          {{item.title}}
+        </view>
+        <view class="articleDetail">
+          <rich-text wx:if="{{item.artticleSign === '富文本'}}" class="articleDec" nodes="{{item.context}}">
+          </rich-text>
+          <video style="width:100%;margin-top:10rpx" id="myVideo" wx:if="{{item.artticleSign === '视频'}}"
+            src="{{item.context}}"></video>
+          <image wx:if="{{item.artticleSign === '富文本'}}" mode="aspectFill" src="{{item.articleCover}}"></image>
+          <image style="margin-left: 0rpx;width:50%;height: 180rpx;border-radius: 10rpx;"
+            wx:if="{{item.artticleSign === '图片'}}" mode="aspectFill" src="{{item.articleCover}}"></image>
+          <image style="width:50%;height: 180rpx;border-radius: 10rpx;" wx:if="{{item.artticleSign === '图片'}}"
+            mode="aspectFill" src="{{item.context}}"></image>
+        </view>
+      </view>
+      <view class="toolBox">
+        <view class="shareBox">
+          <!-- 分享 -->
+          <image style="  position: absolute;z-index: 1;" bindtap="onShareAppMessage" src="../../images/share.png">
+          </image>
+          <button style="position: relative;width: 40rpx;height:40rpx" class="button" open-type="share"></button>
+        </view>
+        <view class="toolRight">
+          <!-- 点赞 -->
+          <image bindtap="userLove" wx:if="{{item.isSupport === true}}" data-articleCommentId="{{item.articleId}}"
+            data-supportId="{{userId}}" data-userId="{{item.userId}}" src="../../images/love.png">
+          </image>
+          <image bindtap="userLove" wx:if="{{item.isSupport === false}}" data-articleCommentId="{{item.articleId}}"
+            data-supportId="{{userId}}" data-userId="{{item.userId}}" src="../../images/love1.png">
+          </image>
+          <view>{{item.supports}}</view>
+          <!-- 收藏 -->
+          <image bindtap="collectionArticle" wx:if="{{item.isCollection === true}}" data-articleId="{{item.articleId}}"
+            src="../../images/collect11.png">
+          </image>
+          <image bindtap="collectionArticle" wx:if="{{item.isCollection === false}}" data-articleId="{{item.articleId}}"
+            src="../../images/collect2.png">
+          </image>
+          <view>{{item.collections}}</view>
+          <!-- 评论 -->
+          <image src="../../images/read.png">
+          </image>
+          <view>{{item.reads}}</view>
+        </view>
+      </view>
+      <view class="line"></view>
+    </view>
+
+    <!-- 暂无更多内容 -->
+    <view class="none" wx:if="{{none === true}}">暂无更多内容</view>
+
+    <!-- 一键回到顶部 -->
+    <backTop wx:if="{{showBackTop}}"></backTop>
+
+    <!-- 选择标签蒙版 -->
+    <view class="popup-wrap" wx:if="{{signShow}}">
+      <view class="popup-bg" catchtap="viewCases"></view>
+      <view class="popup check-result-box major">
+        <view class="popup-tit">
+          <text>导航</text>
+          <image src="../../images/close (1).png" catchtap="viewCases"></image>
+        </view>
+        <view class="major-list">
+          <view data-id="{{item.id}}" bindtap="actionActive" class="major-item {{item.isShow?'active':''}}"
+            wx:for="{{swiperList}}" wx:key="index">{{item.signName}}</view>
+        </view>
+      </view>
+    </view>
+
+    <bottomWindow authorUserId="{{authorUserId}}" author="{{author}}" authorTitle="{{authorTitle}}"
+      showModalStatus="{{showModalStatus}}"></bottomWindow>
+    <!-- <view class="article">
+      <view class="userBox">
+        <view class="topBoxLeft">
+          <image bindtap="goToPersonal" class="userImg" src="../../images/userImg.png"></image>
+          <view class="userDetail">
+            <view class="userName">
+              网易小云
+            </view>
+            <view class="time">
+              刚刚 发表
+            </view>
+          </view>
+        </view>
+        <image class="topBoxImg" src="../../images/menu.png"></image>
+      </view>
+      <navigator url="../article/article" class="articleListDetail">
+        <view class="title">
+          2021网易游戏中秋礼盒 | 风来韵转，福铃响至
+        </view>
+        <view class="articleDetail">
+          <view class="articleDec">
+            文章内容有，超过4行的话省略号文章内容有超过4行的话省略号文章内容有，超过4行有，超过4，超过超过超过超过…
+          </view>
+          <image src="../../images/userImg.png"></image>
+        </view>
+      </navigator>
+      <view class="toolBox">
+        <view class="shareBox">
+          <image src="../../images/share.png"></image>
+        </view>
+        <view class="toolRight">
+          <image src="../../images/love1.png">
+          </image>
+          <view>13</view>
+          <image src="../../images/collect2.png">
+          </image>
+          <view>13</view>
+          <image src="../../images/content2.png">
+          </image>
+          <view>13</view>
+        </view>
+      </view>
+      <view class="line"></view>
+    </view> -->
+  </view>
+</view>

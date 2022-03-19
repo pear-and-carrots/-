@@ -1,0 +1,52 @@
+@import "../../assets/recommended.wxss";
+@import "../../assets/videoList.wxss";
+@import "../../assets/topicList.wxss";
+page {
+  background-color: #f8f6f6;
+  padding-top: 220rpx;
+}
+
+.topBox{
+  background-color: #f8f6f6;
+  position: fixed;
+  top: -5rpx;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navBox{
+  font-size: 28rpx;
+  width: 80%;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 10%;
+  padding-right: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f8f6f6;
+}
+
+.navBox .navItme{
+  font-weight: 600;
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  border-radius: 100%;
+  background-image: linear-gradient(to bottom, rgb(145, 139, 150),rgb(109, 109, 196),rgb(153, 162, 190));
+  /* background-color: bisque; */
+  border-radius: 100%;
+  color: #eeeeee;
+}
+
+.navBox .navItmeactive{
+  font-weight: 600;
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  border-radius: 100%;
+  background-image: linear-gradient(to bottom, rgb(110, 13, 179),rgb(70, 70, 153),rgb(43, 43, 187));
+  color: #ffffff;
+}

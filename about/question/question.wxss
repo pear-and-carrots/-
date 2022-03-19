@@ -1,0 +1,21 @@
+.box{
+  margin: 3%;
+  padding: 2%;
+  align-items: center;
+  background-color: #f7f5fa;
+  border-radius: 10rpx;
+  box-shadow: 1rpx 1rpx 1rpx 1rpx #bdbbbb;
+}
+
+.box .question{
+  color: #1a0947;
+  font-size: 30rpx;
+  font-weight: 650;
+  margin-bottom: 30rpx;
+}
+
+.box .answer{
+  color: #534040;
+  font-size: 28rpx;
+  margin-left: 40rpx;
+}

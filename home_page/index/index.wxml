@@ -1,0 +1,44 @@
+<!-- 选择性别 -->
+<swiper class="swiper" bindchange="bindSwiper" current="{{currentId}}">
+  <!-- 选择性别 -->
+  <swiper-item class="swiperItem" style="margin-top: -200rpx">
+    <view class="title">请选择您的性别</view>
+    <view class="box">
+      <view bindtap="getGender" data-id="{{item.id}}" data-name="{{item.name}}" class="genderBox"
+        wx:for="{{genderList}}" wx:key="{{index}}">
+        <image class="image" src="{{item.img}}"></image>
+        <view class="name{{genderId === index?'active':''}}">{{item.name}}</view>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item class="swiperItem" style="margin-top:-500rpx;margin-bottom:200rpx">
+    <!-- 选择星座 -->
+    <view class="title" style="margin-bottom:100rpx">请填写您的生日</view>
+    <view class="birthBox">
+      <picker mode="date" value="{{date}}" start="1920-01-01" end="2030-12-31" bindchange="bindDateChange">
+        <view class="picker">
+          <text wx:if="{{date.length === 0}}">日期</text> {{date}}
+        </view>
+      </picker>
+    </view>
+    <!-- <view class="constellationBox">
+      <view bindtap="constellation" data-id="{{item.id}}" data-name="{{item.name}}" class="constellation{{constellationId === index?'active':''}}"
+        wx:for="{{constellationList}}" wx:key="{{index}}">
+        <image class="image" src="{{item.img}}"></image>
+        <view class="name">{{item.name}}</view>
+        <view class="day" style="font-size:19rpx">{{item.day}}</view>
+      </view>
+    </view> -->
+  </swiper-item>
+  <swiper-item class="swiperItem" style="margin-top: -300rpx;">
+    <!-- 选择兴趣方向 -->
+    <view class="title" style="margin-bottom:30rpx">请选择您的方向（至少三个）</view>
+    <view class="InterestBox">
+      <view bindtap="Interest" data-id="{{item.id}}" data-name="{{item.signName}}"
+        class="Interest{{item.isShow === true?'active':''}}" wx:for="{{InterestList}}" wx:key="{{index}}">
+        <view class="name">{{item.signName}}</view>
+      </view>
+    </view>
+    <button class="button" bindtap="sumbit">进入</button>
+  </swiper-item>
+</swiper>

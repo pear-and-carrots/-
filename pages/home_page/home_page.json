@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "backTop": "../../components/backTop/backTop",
+    "bottomWindow": "../../components/bottomWindow/bottomWindow"
+  }
+}

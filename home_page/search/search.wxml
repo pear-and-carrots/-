@@ -1,0 +1,28 @@
+<search bindsearchText="searchText" bindsearch="search"></search>
+<!-- 历史记录 -->
+<view class="historyBox">
+  <view class="topBox">
+    <view style="font-weight: 700">历史记录</view>
+    <!-- 清除历史记录 -->
+    <image wx:if="{{historyList.length !== 0}}" bindtap="deleteHistory" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636549283503.png"></image>
+  </view>
+  <view class="item">
+    <view wx:for="{{historyList}}" wx:key="{{index}}" class="itemName" data-name="{{item.keyword}}" bindtap="bindhistoryList">
+      {{item.keyword}}
+    </view>
+    <view wx:if="{{historyList.length === 0}}" class="none">暂无历史记录，快去探索吧</view>
+  </view>
+</view>
+
+<view class="line"></view>
+
+<!-- 探索发现 -->
+<view class="findBox">
+  <view class="title">探索发现</view>
+  <view class="item">
+    <view wx:for="{{hotList}}" wx:key="{{index}}" class="itemName"  data-name="{{item}}" bindtap="bindhistoryList">
+      {{index + 1}} . {{item}}
+      <image wx:if="{{index < 6}}" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634730370932.png"></image>
+    </view>
+  </view>
+</view>

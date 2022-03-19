@@ -1,0 +1,76 @@
+page{
+  background-color: #F2F2F2;
+}
+
+.box{
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box .time{
+  font-size: 28rpx;
+  color: #666666;
+  margin: 20rpx;
+}
+
+/* 热门活动 */
+
+.detailBox{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  box-shadow: 2rpx 2rpx 2rpx 2rpx #d8d6d6;
+}
+
+.detailBox image{
+  border-top-right-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+  width: 100%;
+  height: 250rpx;
+}
+
+.detailBox .dec{
+  font-size: 28rpx;
+  color: #101010;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+  margin-left: 20rpx;
+  display: box;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.detailBox .userBox {
+  display: flex;
+  flex-direction: row;
+  padding-left: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.detailBox .userBox image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.detailBox .userBox .name{
+  font-size: 28rpx;
+  color: #101010;
+}
+
+/* 系统通知 */
+.detailBox .title{
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #101010;
+}

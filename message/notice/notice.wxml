@@ -1,0 +1,23 @@
+<view class="box" wx:for="{{selectBycodedList}}">
+  <view class="time">{{item.createTime}}</view>
+  <block wx:if="{{noticeId === 1}}">
+    <view class="detailBox">
+      <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634985520626.jpg"></image>
+      <view class="dec">{{item.context}}</view>
+      <view class="userBox">
+        <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634727713980.png"></image>
+        <view class="name">官方小助手</view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{noticeId === 2}}">
+    <view class="detailBox">
+      <view class="title">{{item.title}}</view>
+      <view class="dec">{{item.context}}</view>
+      <view class="userBox">
+        <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634727744731.png"></image>
+        <view class="name">官方小助手</view>
+      </view>
+    </view>
+  </block>
+</view>

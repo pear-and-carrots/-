@@ -1,0 +1,117 @@
+{
+  "pages": [
+    "pages/about/about",
+    "pages/home_page/home_page",
+    "pages/recommend/recommend",
+    "pages/add/add",
+    "pages/message/message",
+    "components/recentchat/recentchat",
+    "components/search/search",
+    "components/addArticle/addArticle",
+    "components/emoji/emoji",
+    "components/inputclear/inputclear",
+    "components/inputmodal/inputmodal",
+    "components/bottomWindow/bottomWindow"
+  ],
+  "subpackages": [{
+      "root": "home_page",
+      "pages": [
+        "login/login",
+        "search/search",
+        "Personal/Personal",
+        "direct/direct",
+        "index/index",
+        "comment/comment",
+        "article/article"
+      ]
+    },
+    {
+      "root": "recommend",
+      "pages": [
+        "videoDetail/videoDetail",
+        "topicList/topicList",
+        "topic/topic",
+        "recommended/recommended",
+        "videoList/videoList"
+      ]
+    },
+    {
+      "root": "message",
+      "pages": [
+        "notice/notice",
+        "collectNum/collectNum"
+      ],
+      "independent": true
+    },
+    {
+      "root": "about",
+      "pages": [
+        "articleList/articleList",
+        "Modify/Modify",
+        "userList/userList",
+        "message/message",
+        "question/question",
+        "about/about",
+        "licence/licence"
+      ]
+    },
+    {
+      "root": "partials",
+      "pages": [
+        "chating/chating",
+        "videoCall/videoCall",
+        "forwardMultiContact/forwardMultiContact",
+        "historyFromCloud/historyFromCloud",
+        "advancedGroupCard/advancedGroupCard"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "盒部出图",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#000000",
+    "list": [{
+        "pagePath": "pages/home_page/home_page",
+        "text": "首页",
+        "iconPath": "images/home_page1.png",
+        "selectedIconPath": "images/home_page.png"
+      },
+      {
+        "pagePath": "pages/recommend/recommend",
+        "text": "动态",
+        "iconPath": "images/recommend1.png",
+        "selectedIconPath": "images/recommend.png"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "text": "发布",
+        "iconPath": "images/add.png",
+        "selectedIconPath": "images/add1.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/message1.png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "个人",
+        "iconPath": "images/about1.png",
+        "selectedIconPath": "images/about.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "需要授权获取您的地理位置信息"
+    }
+    },  
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

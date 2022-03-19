@@ -1,0 +1,150 @@
+page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  background: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F30%2F20200330093232_hsrsk.thumb.400_0.jpg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636295615&t=6900d85830b89c5dea0d01034e4ea001");
+}
+
+.title{
+  margin-top: 100rpx;
+  font-size: 50rpx;
+  font-weight: 800;
+  color: #433579;
+}
+
+.loginBox {
+  position: fixed;
+  top: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  /* margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 25%; */
+  width: 90%;
+  height: 1000rpx;
+  border-radius: 20rpx;
+  opacity: 0.95;
+}
+
+.loginBox .topNav {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #410a79;
+  text-align: center;
+  margin-top: 80rpx;
+  width: 50%;
+  background-color: rgb(245, 240, 255);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loginBox .topNav .navItem {
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+  width: 50%;
+  height: 100%;
+  background-color: rgb(245, 240, 255);
+}
+
+.loginBox .topNav .navItemActive {
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+  width: 50%;
+  height: 100%;
+  background-color: #c0bfbf;
+  color: #979696;
+}
+
+.loginBox .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(245, 240, 255);
+  width: 80%;
+  height: 580rpx;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  padding-top: 50rpx;
+}
+
+.loginBox .box image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.loginBox .box .loginImg {
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 10%;
+}
+
+.loginBox .box .boxItem input {
+  width: 70%;
+}
+
+.loginBox .box .boxItem .checkCode{
+  text-align: center;
+  width: 20%;
+  font-size: 24rpx;
+  margin-right: -110rpx;
+  margin-top: -10rpx;
+  margin-bottom: -10rpx;
+  background-color: #e3dff3;
+}
+
+.loginBox .box .boxItem {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10rpx;
+  border-radius: 10rpx;
+  background-color: #ffffff;
+  border: 1rpx solid #c0bfbf;
+}
+
+.loginBox .box .loginRight{
+  margin-top: 10%;
+  width: 90rpx;
+  height: 90rpx
+}
+
+/* 找回密码 */
+.findPasswor{
+  
+}
+
+/* 登录成功动画 */
+@keyframes scaleDraw {
+  0% {
+    transform: scale(0.5);
+  }
+
+  25% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.5);
+  }
+
+  75% {
+    transform: scale(1);
+  }
+}
+
+.loginRight {
+  width: 200px;
+  height: 200px;
+  background-size: 200px 200px;
+  -webkit-animation-name: scaleDraw;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 5s;
+}

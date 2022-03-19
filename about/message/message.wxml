@@ -1,0 +1,21 @@
+<!-- 反馈类型 -->
+<picker class="picker" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+  <view class="pickerText">
+    反馈类型*：{{array[index]}}
+  </view>
+</picker>
+
+<!-- 描述详情 -->
+<view class="textAare">
+  <textarea placeholder="请描述您的问题*:" bindinput="areaText" value="{{context}}"></textarea>
+  <image wx:if="{{photo.length === 0}}" bindtap="addImg" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636549355836.png"></image>
+  <image wx:if="{{photo.length !== 0}}" src="{{photo}}" bindlongpress="deleImg" bindtap="previewImg"></image>
+</view>
+
+<view class="textAare">
+  <view class="text">联系方式*：</view>
+  <input placeholder="手机号/QQ/微信任选一：" bindinput="contact" value="{{contact}}"/>
+  <input placeholder="邮箱：" bindinput="email" value="{{email}}"/>
+</view>
+
+<button class="button" bindtap="userSuggest">反馈</button>

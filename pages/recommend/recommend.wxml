@@ -1,0 +1,213 @@
+<!-- 顶部导航 -->
+<view class="topBox">
+  <view class="navBox">
+    <view class="navItme{{navId === index?'active':''}}" wx:for="{{navList}}" wx:key="index" bindtap="topNav"
+      data-id="{{item.id}}">
+      {{item.name}}
+    </view>
+  </view>
+  <!-- 顶部搜索 -->
+  <view class="inputBox">
+    <navigator url="../../home_page/search/search" class="input">
+      <view class="searchText">搜索用户、动态、设计稿</view>
+      <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634725319247.png"></image>
+    </navigator>
+  </view>
+</view>
+<!-- 视频区 -->
+<block wx:if="{{navId === 0}}">
+  <!-- 用户信息区 -->
+  <view class="videoBox" wx:for="{{videoList}}">
+    <view class="articleBox">
+      <view class="userBox">
+        <image style="margin-right:30rpx" src="{{item.photo}}" bindtap="goToPersonal" data-userId="{{item.userId}}"></image>
+        <view class="userDetail" bindtap="goToPersonal" data-userId="{{item.userId}}">
+          <view class="userName">{{item.name}}</view>
+          <view wx:if="{{item.aren != null}}" class="userdec">
+            {{item.aren}}
+          </view>
+          <view wx:if="{{item.aren == null}}" class="userdec">
+            {{item.myselSign}}
+          </view>
+        </view>
+        <view class="toolBox">
+          <view bindtap="followPeople" wx:if="{{item.isFollow !== true}}" data-userid="{{item.userId}}" class="focus">+ 关注</view>
+          <view bindtap="followPeople" wx:if="{{item.isFollow === true}}" data-userid="{{item.userId}}" class="alreadyFocus">已关注</view>
+          <!-- 绑定菜单 -->
+          <image bindtap="bindMenu"
+            src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634727351917.png">
+          </image>
+        </view>
+      </view>
+    </view>
+    <view class="page-body">
+      <view class="page-section tc">
+        <video class="video" id="myVideo" src="{{item.video}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}"
+          show-center-play-btn='{{false}}' show-play-btn="{{true}}" controls></video>
+      </view>
+    </view>
+    <view bindtap="gotoVideoDetail" data-id="{{item.articleId}}">
+      <view class="videoDetail">
+        <view class="title">{{item.title}}</view>
+        <view class="dec">
+          {{item.videoDescption}}
+        </view>
+      </view>
+    </view>
+    <view class="bottomTool">
+      <view class="item">
+        <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636816557848.png"></image>
+        <view>
+          转发
+        </view>
+      </view>
+      <!-- 视频点赞 -->
+      <view class="item">
+        <image wx:if="{{item.isSupport === false}}" bindtap="userLove" data-articleCommentId="{{item.articleId}}"
+          data-supportId="{{userId}}" data-userId="{{item.userId}}"
+          src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636816881702.png"></image>
+        <image wx:if="{{item.isSupport === true}}" bindtap="userLove" data-articleCommentId="{{item.articleId}}"
+          data-supportId="{{userId}}" data-userId="{{item.userId}}"
+          src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636816690928.png"></image>
+        <view>
+          {{item.supports}}
+        </view>
+      </view>
+      <!-- 视频收藏 -->
+      <view class="item">
+        <image wx:if="{{item.isCollection === false}}" bindtap="collectionArticle" data-articleId="{{item.articleId}}"
+          src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636816790379.png"></image>
+        <image wx:if="{{item.isCollection === true}}" bindtap="collectionArticle" data-articleId="{{item.articleId}}"
+          src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636816807307.png"></image>
+        <view>
+          {{item.collections}}
+        </view>
+      </view>
+      <view class="item">
+        <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636816951282.png"></image>
+        <view>
+          {{item.reads}}
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+
+<!-- 话题区 -->
+<block wx:if="{{navId === 1}}">
+  <view class="bigBox">
+    <view class="box" wx:for="{{topicList}}">
+      <image src="{{item.icon}}" bindtap="gotoTopic" data-item="{{item}}"></image>
+      <view class="title"># {{item.name}} #</view>
+      <view class="userBox" bindtap="goToPersonal" data-userId="{{item.ownerId}}">
+        <image src="{{item.ownerPhoto}}" style="margin-top:10rpx"></image>
+        <view class="author">{{item.ownerName}}</view>
+        <!-- <view class="otherDec">传媒博士在读</view> -->
+      </view>
+      <view class="dec" bindtap="gotoTopic" data-item="{{item}}">{{item.desciption}}</view>
+    </view>
+  </view>
+</block>
+
+<!-- 推荐 -->
+<block wx:if="{{navId === 2}}">
+
+  <!-- 猜你喜欢 -->
+  <view class="guess">
+    <view class="gTop">
+      <view class="title">
+        <view>猜你喜欢</view>
+        <image bindtap="update" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1635346684086.png">
+        </image>
+      </view>
+      <view class="dec">精选帖主，创意设计</view>
+    </view>
+    <view class="gBottom">
+      <navigator class="gItme" wx:for="{{guessList}}"
+        url="../../home_page/article/article?articleId={{item.articleId}}&userId={{userId}}&artticleSign={{item.articleSign}}"
+        wx:if="{{index < bigNum && index >= smallNum}}">
+        <image src="{{item.articleCover}}"></image>
+        <rich-text nodes="{{item.title}}" class="gdec">
+        </rich-text>
+      </navigator>
+    </view>
+  </view>
+  <!-- 文章列表 -->
+  <view class="article" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="authorBox">
+      <view class="topBoxLeft">
+        <!-- 用户头像 -->
+        <image bindtap="goToPersonal" data-userId="{{item.userId}}" class="userImg" src="{{item.photo}}"></image>
+        <view class="userDetail">
+          <view class="userName">
+            {{item.name}}
+          </view>
+          <view class="time">
+            {{item.createTime}} 发表
+          </view>
+        </view>
+      </view>
+      <!-- 菜单 -->
+      <image class="topBoxImg" data-userid="{{item.userId}}" data-authortitle="{{item.title}}"
+        data-author="{{item.name}}" bindtap="bindMenu"
+        src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634727351917.png"></image>
+    </view>
+    <navigator
+      url="../../home_page/article/article?articleId={{item.articleId}}&userId={{userId}}&artticleSign={{item.artticleSign}}"
+      class="articleListDetail">
+      <view class="title">
+        {{item.title}}
+      </view>
+      <view class="articleDetail">
+        <rich-text wx:if="{{item.artticleSign === '富文本'}}" class="articleDec" nodes="{{item.context}}">
+        </rich-text>
+        <image wx:if="{{item.artticleSign === '富文本'}}" mode="aspectFill" src="{{item.articleCover}}"></image>
+        <image style="margin-left: 0rpx;width:50%;height: 180rpx;border-radius: 10rpx;"
+          wx:if="{{item.artticleSign === '图片'}}" mode="aspectFill" src="{{item.articleCover}}"></image>
+        <image style="width:50%;height: 180rpx;border-radius: 10rpx;" wx:if="{{item.artticleSign === '图片'}}"
+          mode="aspectFill" src="{{item.context}}"></image>
+      </view>
+    </navigator>
+    <view class="toolBox">
+      <view class="shareBox">
+        <!-- 分享 -->
+        <image style="  position: absolute;z-index: 1;" bindtap="onShareAppMessage" src="../../images/share.png">
+        </image>
+        <button style="position: relative;width: 40rpx;height:40rpx" class="button" open-type="share"></button>
+      </view>
+      <view class="toolRight">
+        <!-- 点赞 -->
+        <image bindtap="userLove" wx:if="{{item.isSupport === true}}" data-articleCommentId="{{item.articleId}}"
+          data-supportId="{{userId}}" data-userId="{{item.userId}}" src="../../images/love.png">
+        </image>
+        <image bindtap="userLove" wx:if="{{item.isSupport === false}}" data-articleCommentId="{{item.articleId}}"
+          data-supportId="{{userId}}" data-userId="{{item.userId}}" src="../../images/love1.png">
+        </image>
+        <view>{{item.supports}}</view>
+        <!-- 收藏 -->
+        <image bindtap="collectionArticle" wx:if="{{item.isCollection === true}}" data-articleId="{{item.articleId}}"
+          src="../../images/collect11.png">
+        </image>
+        <image bindtap="collectionArticle" wx:if="{{item.isCollection === false}}" data-articleId="{{item.articleId}}"
+          src="../../images/collect2.png">
+        </image>
+        <view>{{item.collections}}</view>
+        <!-- 评论 -->
+        <image src="../../images/read.png">
+        </image>
+        <view>{{item.reads}}</view>
+      </view>
+    </view>
+    <view class="line"></view>
+  </view>
+
+
+  <!-- 暂无更多内容 -->
+  <view class="none" wx:if="{{none === true}}">暂无更多内容</view>
+</block>
+
+<!-- 一键回到顶部 -->
+<backTop wx:if="{{showBackTop}}"></backTop>
+<!-- 隐藏菜单 -->
+<bottomWindow authorUserId="{{authorUserId}}" author="{{author}}" authorTitle="{{authorTitle}}"
+  showModalStatus="{{showModalStatus}}"></bottomWindow>

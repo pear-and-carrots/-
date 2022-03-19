@@ -1,0 +1,160 @@
+page {
+  padding-bottom: 100rpx;
+}
+
+.line {
+  height: 20rpx;
+  width: 100%;
+  background-color: #F7F7F7;
+}
+
+/* 评论区 */
+.allContentTop {
+  font-size: 30rpx;
+  margin-left: 5%;
+  margin-bottom: -10rpx;
+}
+
+/* 一级评论 */
+.contentBox .userBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  padding: 5%;
+}
+
+.contentBox .userBox image {
+  border-radius: 100%;
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 30rpx;
+}
+
+.contentBox .userBox .loveImg {
+  margin-top: -25rpx;
+  margin-left: 25rpx;
+  width: 55rpx;
+  height: 55rpx;
+}
+
+.contentBox .userBox .userDetail {
+  display: flex;
+  flex-direction: column;
+  width: 59%;
+  font-size: 28rpx;
+}
+
+.contentBox .userBox .userDetail .userName {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+  width: 100%;
+}
+
+.contentBox .userBox .userDetail .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.contentBox .userBox .toolBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: -40rpx;
+}
+
+.contentBox .userBox .toolBox image {
+  border-radius: 100%;
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.contentBox .line {
+  height: 1rpx;
+  width: 80%;
+  margin-left: 15%;
+  margin-right: 5%;
+  margin-top: -10rpx;
+  margin-bottom: -10rpx;
+  background-color: #e0e0e0;
+}
+
+/* 二级评论 */
+.contentBox .otherContentTop {
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  margin-left: 5%;
+  color: #666666;
+}
+
+.contentBox .SecondUserBox {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 5%;
+}
+
+.contentBox .SecondUserBox image {
+  border-radius: 100%;
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 30rpx;
+}
+
+.contentBox .SecondUserBox .userDetail {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  font-size: 28rpx;
+}
+
+.contentBox .SecondUserBox .userDetail .userName {
+  margin-bottom: 10rpx;
+  font-weight: 600;
+}
+
+.contentBox .SecondUserBox .userDetail .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* 底部评论框 */
+.bottomInput {
+  width: 100%;
+  background: #e0e0e0;
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
+
+.bottomInput input {
+  padding: 10rpx;
+  margin-right: 20rpx;
+}
+
+.replayText {
+  margin-left: 15rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #660099;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10rpx;
+  width: 80%;
+  background-color: #ffffff;
+  margin-right: 20rpx;
+  align-items: center;
+}

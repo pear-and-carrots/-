@@ -1,0 +1,12 @@
+<view class="bigBox">
+  <view class="box">
+    <image src="../../images/message.png"></image>
+    <view class="title"># 丁真走红一年做了啥 #</view>
+    <view class="userBox">
+      <image src="../../images/share.png"></image>
+      <view class="author">路人甲</view>
+      <view class="otherDec">传媒博士在读</view>
+    </view>
+    <view class="dec">在这一年里的世界，他以名言名言名言名言</view>
+  </view>
+</view>

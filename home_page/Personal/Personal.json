@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bottomWindow": "../../components/bottomWindow/bottomWindow"
+  },
+  "navigationStyle": "custom"
+}

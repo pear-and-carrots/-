@@ -1,0 +1,130 @@
+<!-- 用户 -->
+<view wx:if="{{userLits.length !== 0 && userListId === 3}}" class="userTitle">搜索到的用户：</view>
+<view wx:if="{{item.articleId === null}}" style="background: #eeeeee;border-radius: 50rpx;padding:10rpx" class="article"
+  wx:for="{{userLits}}" wx:key="{{index}}">
+  <view class="userBox">
+    <view class="topBoxLeft">
+      <image bindtap="goToPersonal" data-userId="{{item.userId}}" class="userImg" src="{{item.photo}}"></image>
+      <view class="userDetail">
+        <view class="userName" style="margin-top:20rpx">
+          {{item.name}}{{item.userName}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="line"></view> -->
+</view>
+<view wx:if="{{list.length !== null && showLine === true && userListId === 3}}" class="userTitle">搜索到的文章：{{index}}
+</view>
+<!-- 文章列表 -->
+<view wx:if="{{userListId === 4}}" class="noticeText">注： 本地最多存储100条数据</view>
+<view wx:if="{{userListId === 1}}" class="noticeText">注： 长按删除作品</view>
+<view wx:if="{{item.articleId !== null}}" class="article" wx:for="{{list}}" wx:key="{{index}}" bindlongpress="deleteArticle" data-articleid="{{item.articleId}}">
+  <view class="userBox">
+    <view class="topBoxLeft">
+      <image bindtap="goToPersonal" data-userId="{{item.userId}}" class="userImg" src="{{item.photo}}"></image>
+      <view class="userDetail">
+        <view class="userName">
+          {{item.name}}{{item.userName}}
+        </view>
+        <view class="time">
+          <text wx:if="{{item.createTime !== null}}">{{item.createTime}}</text>
+          <!-- <text wx:if="{{item.deplayTime !== null}}">{{item.deplayTime}}</text> -->
+          发表
+        </view>
+      </view>
+    </view>
+    <!-- 菜单 -->
+    <image class="topBoxImg" data-userid="{{item.userId}}" data-authortitle="{{item.title}}" data-author="{{item.name}}"
+      bindtap="bindMenu" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634727351917.png"></image>
+  </view>
+  <view bindtap="gotoDetail" wx:if="{{userListId === 4}}" data-artticleSign="{{item.articleSign}}" class="articleListDetail" data-articleId="{{item.articleId}}">
+    <view class="title">
+      {{item.title}}
+    </view>
+    <view class="articleDetail">
+      <rich-text wx:if="{{item.artticleSign === '富文本' || item.articleSign === '富文本'}}" class="articleDec"
+        nodes="{{item.context}}">
+      </rich-text>
+      <video style="width:100%;margin-top:10rpx" id="myVideo" wx:if="{{item.artticleSign === '视频'|| item.articleSign === '视频'}}" src="{{item.videoUrl}}"></video>
+      <image wx:if="{{item.artticleSign === '富文本'|| item.articleSign === '富文本'}}" mode="aspectFill" src="{{item.articleCover}}"></image>
+      <image style="margin-left: 0rpx;width:50%;height: 180rpx;border-radius: 10rpx;" wx:if="{{item.artticleSign === '图片'|| item.articleSign === '图片'}}" mode="aspectFill" src="{{item.articleCover}}"></image>
+      <image style="width:50%;height: 180rpx;border-radius: 10rpx;" wx:if="{{item.artticleSign === '图片'|| item.articleSign === '图片'}}" mode="aspectFill" src="{{item.picture[0]}}"></image>
+    </view>
+  </view>
+  <view bindtap="gotoDetail" wx:if="{{userListId !== 4}}" data-artticleSign="{{item.artticleSign}}" class="articleListDetail" data-articleId="{{item.articleId}}">
+    <view class="title">
+      {{item.title}}
+    </view>
+    <view class="articleDetail">
+      <rich-text wx:if="{{item.artticleSign === '富文本' || item.articleSign === '富文本'}}" class="articleDec"
+        nodes="{{item.context}}">
+      </rich-text>
+      <video style="width:100%;margin-top:10rpx" id="myVideo" wx:if="{{item.artticleSign === '视频'|| item.articleSign === '视频'}}" src="{{item.context}}"></video>
+      <image wx:if="{{item.artticleSign === '富文本'|| item.articleSign === '富文本'}}" mode="aspectFill" src="{{item.articleCover}}"></image>
+      <image style="margin-left: 0rpx;width:50%;height: 180rpx;border-radius: 10rpx;" wx:if="{{item.artticleSign === '图片'|| item.articleSign === '图片'}}" mode="aspectFill" src="{{item.articleCover}}"></image>
+      <image style="width:50%;height: 180rpx;border-radius: 10rpx;" wx:if="{{item.artticleSign === '图片'|| item.articleSign === '图片'}}" mode="aspectFill" src="{{item.context}}"></image>
+    </view>
+  </view>
+  <view class="toolBox" wx:if="{{articleId === 10}}">
+    <view class="shareBox">
+      <!-- 分享 -->
+      <image style="  position: absolute;z-index: 1;" bindtap="onShareAppMessage" src="../../images/share.png"></image>
+      <button style="position: relative;width: 40rpx;height:40rpx" class="button" open-type="share"></button>
+    </view>
+    <view class="toolRight">
+      <!-- 点赞 -->
+      <image bindtap="userLove" wx:if="{{item.isSupport === true}}" data-articleCommentId="{{item.articleId}}"
+        data-supportId="{{userId}}" data-userId="{{item.userId}}" src="../../images/love.png">
+      </image>
+      <image bindtap="userLove" wx:if="{{item.isSupport === false}}" data-articleCommentId="{{item.articleId}}"
+        data-supportId="{{userId}}" data-userId="{{item.userId}}" src="../../images/love1.png">
+      </image>
+      <view>{{item.supports}}</view>
+      <!-- 收藏 -->
+      <image bindtap="collectionArticle" wx:if="{{item.isCollection === true}}"
+        data-articleCommentId="{{item.articleId}}" data-articleId="1" data-userId="3" src="../../images/collect2.png">
+      </image>
+      <image bindtap="collectionArticle" wx:if="{{item.isCollection === false}}"
+        data-articleCommentId="{{item.articleId}}" data-articleId="1" data-userId="3" src="../../images/collect11.png">
+      </image>
+      <view>{{item.collections}}</view>
+      <!-- 评论 -->
+      <image src="../../images/read.png">
+      </image>
+      <view>{{item.reads}}</view>
+    </view>
+  </view>
+  <view class="line"></view>
+</view>
+
+<!-- 暂无更多内容 -->
+<!-- 暂无更多内容 -->
+<view class="none" wx:if="{{list.length === 0 || list === null}}">
+  <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634729341156.png"></image>
+  <view>
+    <text wx:if="{{userListId !== 3}}">暂无更多内容</text>
+    <text wx:if="{{userListId === 3}}">该关键词暂无更多内容</text>
+  </view>
+</view>
+
+<!-- 一键回到顶部 -->
+<backTop wx:if="{{showBackTop}}"></backTop>
+
+<!-- 选择标签蒙版 -->
+<view class="popup-wrap" wx:if="{{signShow}}">
+  <view class="popup-bg" catchtap="viewCases"></view>
+  <view class="popup check-result-box major">
+    <view class="popup-tit">
+      <text>导航</text>
+      <image src="../../images/close (1).png" catchtap="viewCases"></image>
+    </view>
+    <view class="major-list">
+      <view data-id="{{item.id}}" bindtap="actionActive" class="major-item {{item.isShow?'active':''}}"
+        wx:for="{{swiperList}}" wx:key="index">{{item.signName}}</view>
+    </view>
+  </view>
+</view>
+
+<bottomWindow authorUserId="{{authorUserId}}" author="{{author}}" authorTitle="{{authorTitle}}"
+  showModalStatus="{{showModalStatus}}"></bottomWindow>

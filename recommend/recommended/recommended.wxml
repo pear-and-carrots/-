@@ -1,0 +1,109 @@
+<!-- 顶部搜索 -->
+<view class="inputBox">
+  <navigator url="../../home_page/search/search" class="input">
+    <view class="searchText">搜索用户、动态、设计稿</view>
+    <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634725319247.png"></image>
+  </navigator>
+</view>
+
+<!-- 猜你喜欢 -->
+<view class="guess">
+  <view class="gTop">
+    <view class="title">
+      <view>猜你喜欢</view>
+      <image bindtap="update" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1635346684086.png"></image>
+    </view>
+    <view class="dec">精选帖主，创意设计</view>
+  </view>
+  <view class="gBottom">
+    <navigator class="gItme" wx:for="{{guessList}}"
+      url="../article/article?articleId={{item.articleId}}&userId={{userId}}" wx:if="{{index < bigNum && index >= smallNum}}">
+      <image src="{{item.articleCover}}"></image>
+      <rich-text nodes="{{item.title}}" class="gdec">
+      </rich-text>
+    </navigator>
+  </view>
+</view>
+<!-- 文章列表 -->
+<view class="article" wx:for="{{list}}" wx:key="{{index}}">
+  <view class="userBox">
+    <view class="topBoxLeft">
+      <image bindtap="goToPersonal" data-userId="{{item.userId}}" class="userImg" src="{{item.photo}}"></image>
+      <view class="userDetail">
+        <view class="userName">
+          {{item.name}}
+        </view>
+        <view class="time">
+          {{item.createTime}} 发表
+        </view>
+      </view>
+    </view>
+    <!-- 菜单 -->
+    <image class="topBoxImg" data-userid="{{item.userId}}" data-authortitle="{{item.title}}" data-author="{{item.name}}"
+      bindtap="bindMenu" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634727351917.png"></image>
+  </view>
+  <navigator url="../article/article?articleId={{item.articleId}}&userId={{userId}}" class="articleListDetail">
+    <view class="title">
+      {{item.title}}
+    </view>
+    <view class="articleDetail">
+      <rich-text class="articleDec" nodes="{{item.context}}">
+      </rich-text>
+      <image src="{{item.articleCover}}"></image>
+    </view>
+  </navigator>
+  <view class="toolBox">
+    <view class="shareBox">
+      <!-- 分享 -->
+      <image style="  position: absolute;z-index: 1;" bindtap="onShareAppMessage" src="../../images/share.png"></image>
+      <button style="position: relative;width: 40rpx;height:40rpx" class="button" open-type="share"></button>
+    </view>
+    <view class="toolRight">
+      <!-- 点赞 -->
+      <image bindtap="userLove" wx:if="{{item.isSupport === true}}" data-articleCommentId="{{item.articleId}}"
+        data-supportId="{{userId}}" data-userId="{{item.userId}}" src="../../images/love.png">
+      </image>
+      <image bindtap="userLove" wx:if="{{item.isSupport === false}}" data-articleCommentId="{{item.articleId}}"
+        data-supportId="{{userId}}" data-userId="{{item.userId}}" src="../../images/love1.png">
+      </image>
+      <view>{{item.supports}}</view>
+      <!-- 收藏 -->
+      <image bindtap="collectionArticle" wx:if="{{item.isCollection === true}}" data-articleId="{{item.articleId}}"
+        src="../../images/collect11.png">
+      </image>
+      <image bindtap="collectionArticle" wx:if="{{item.isCollection === false}}" data-articleId="{{item.articleId}}"
+        src="../../images/collect2.png">
+      </image>
+      <view>{{item.collections}}</view>
+      <!-- 评论 -->
+      <image src="../../images/read.png">
+      </image>
+      <view>{{item.reads}}</view>
+    </view>
+  </view>
+  <view class="line"></view>
+</view>
+
+<!-- 暂无更多内容 -->
+<view class="none" wx:if="{{none === true}}">暂无更多内容</view>
+
+<!-- 一键回到顶部 -->
+<backTop wx:if="{{showBackTop}}"></backTop>
+
+<!-- 选择标签蒙版 -->
+<view class="popup-wrap" wx:if="{{signShow}}">
+  <view class="popup-bg" catchtap="viewCases"></view>
+  <view class="popup check-result-box major">
+    <view class="popup-tit">
+      <text>导航</text>
+      <image src="../../images/close (1).png" catchtap="viewCases"></image>
+    </view>
+    <view class="major-list">
+      <view data-id="{{item.id}}" bindtap="actionActive" class="major-item {{item.isShow?'active':''}}"
+        wx:for="{{swiperList}}" wx:key="index">{{item.signName}}</view>
+    </view>
+  </view>
+</view>
+
+<bottomWindow authorUserId="{{authorUserId}}" author="{{author}}" authorTitle="{{authorTitle}}"
+  showModalStatus="{{showModalStatus}}"></bottomWindow>

@@ -1,0 +1,38 @@
+page {
+  padding: 5%;
+}
+
+.searchBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.searchBox .input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #F4F4F4;
+  width: 80%;
+  padding: 15rpx;
+  border-radius: 40rpx;
+}
+
+.searchBox .input image {
+  width: 45rpx;
+  height: 45rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.searchBox .input input {
+  font-size: 28rpx;
+}
+
+.searchBox .searchText {
+  font-size: 30rpx;
+  font-weight: 550;
+  color: #494949;
+}

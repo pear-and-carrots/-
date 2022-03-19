@@ -1,0 +1,188 @@
+page {
+  padding-top: 180rpx;
+}
+
+/* 顶部信息 */
+.topBox {
+  padding: 3%;
+  width: 94%;
+  position: fixed;
+  top: 0;
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 30rpx;
+  font-weight: 600;
+  border-bottom: 3rpx solid #d4d2d2;
+}
+
+.topBox .top1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
+.topBox .top2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 22%;
+}
+
+.topBox image {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 100%;
+}
+
+/* 中间消息 */
+.middleBox {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 左边消息 */
+.middleBox .leftMessage{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.middleBox .leftMessage .text {
+  display: inline-block;
+  position: relative;
+  border: 1px solid rgb(157, 159, 163);
+  background-color: rgb(250, 248, 252);
+  padding: 15rpx;
+  border-radius: 10rpx;
+  max-width: 600rpx;
+}
+
+.middleBox .leftMessage .text::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid ;
+  position: absolute;
+  top: 2px;
+  left: -20px;
+  border-color: transparent rgb(157, 159, 163) transparent transparent;
+}
+
+.middleBox .leftMessage .text::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 9px solid;
+  position: absolute;
+  top: 3px;
+  left: -17px;
+  border-color: transparent #fff transparent transparent;
+}
+
+/* 右边消息 */
+.middleBox .rightMessage{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.middleBox .leftMessage image {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 100%;
+  margin-right: 40rpx;
+}
+
+.middleBox .rightMessage image {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 100%;
+  margin-left: 40rpx;
+}
+
+.middleBox .rightMessage .text {
+  display: inline-block;
+  position: relative;
+  border: 1px solid #666666;
+  padding: 15rpx;
+  border-radius: 10rpx;
+  max-width: 600rpx;
+}
+
+.middleBox .rightMessage .text image {
+  width: 200rpx;
+  border-radius: 0;
+}
+
+.middleBox .rightMessage .text::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid;
+  position: absolute;
+  top: 2px;
+  right: -20px;
+  border-color: transparent transparent transparent #666666;
+}
+
+.middleBox .rightMessage .text::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 9px solid;
+  position: absolute;
+  top: 3px;
+  right: -17px;
+  border-color: transparent transparent transparent #fff;
+}
+
+/* 底部工具 */
+.bottomBox {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 1rpx solid #d4d2d2;
+  align-items: center;
+}
+
+.bottomBox input {
+  padding: 10rpx;
+  width: 80%;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #666666;
+  border: 1rpx solid #d4d2d2;
+  margin: 20rpx;
+}
+
+.bottomBox image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+
+.bottomBox .button {
+  padding: 10rpx;
+  text-align: center;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid #d4d2d2;
+  width: 100rpx;
+  background-color: #074E95;
+  color: #ffffff;
+  margin-right: 20rpx;
+}

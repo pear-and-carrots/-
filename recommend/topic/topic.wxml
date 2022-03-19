@@ -1,0 +1,39 @@
+<!-- 文章 -->
+<view class="articleBox">
+
+  <image style="width:100%" mode="widthFix" src="{{list.icon}}"></image>
+  <view class="userBox">
+    <image src="{{list.ownerPhoto}}" bindtap="gotoDetail"></image>
+    <view class="userDetail">
+      <view class="userName">{{list.ownerName}}</view>
+      <view class="time">{{list.createTime}} 发表</view>
+    </view>
+    <view class="toolBox">
+      <view bindtap="followPeople" wx:if="{{list.isFollow === false}}" class="focus">关注</view>
+      <view bindtap="followPeople" wx:if="{{list.isFollow === true}}" class="alreadyFocus">已关注</view>
+      <!-- 绑定菜单 -->
+      <image bindtap="bindMenu" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634727351917.png">
+      </image>
+    </view>
+  </view>
+  <view class="title"># {{list.name}} #</view>
+  <view class="decBox">
+    <rich-text class="dec" nodes="{{list.desciption}}"></rich-text>
+  </view>
+</view>
+
+<view class="line"></view>
+
+<!-- 底部工具 -->
+<view class="bottomBox">
+  <view class="join" bindtap="join">
+    <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636795943503.png"></image>
+    <view>加入话题</view>
+  </view>
+  <view>
+    {{list.size}}人正在讨论
+  </view>
+</view>
+
+<bottomWindow authorUserId="{{authorUserId}}" author="{{author}}" authorTitle="{{authorTitle}}"
+  showModalStatus="{{showModalStatus}}"></bottomWindow>

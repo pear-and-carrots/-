@@ -1,0 +1,29 @@
+<view class="container">
+    <view id="loading" hidden="{{loadingHidden}}">
+        <view id="loading-center">
+            <view id="loading-center-absolute">
+                <view wx:for="{{arr}}" class="object" id="{{item.id}}">
+                  <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728795960.png"></image>
+                </view>
+                <view class="object" id="object_big">
+                  <image style="width:200rpx;height:200rpx" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728761861.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="title">
+  关于我们
+</view>
+<view class="detail">
+  <text space="nbsp">
+    海创团队成立于2006年，至今已有十余年的发展历史。
+    在一代又一代的海创成员共同努力下，如今团队已成为具有一定规模且制度完善的科技创新型团队。
+    团队实验室位于校园地理位置中心——钟海楼。在数学与计算机学院的大力支持下，实验室实验设备齐全，实验资源充足，且拥有多位经验丰富的指导老师。
+    实验室成员来自学校各个学院不同年级，他们上进好学，知识储备丰富。
+    团队学习主要以项目为驱动，成员进入团队后可根据自己的兴趣爱好选择学习方向。
+    本次参赛人数：5人(童滢颖、张莹莹、卓镇会、傅连枫、胡建波)
+    团队理念：团队秉承诚信、规范、高效的工作原则，用技术赢得市场，以创意服务取得信誉。
+    发展：软件组、硬件组。
+  </text>
+</view>

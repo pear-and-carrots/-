@@ -1,0 +1,361 @@
+.TopBox {
+  position: relative;
+  height: 400rpx;
+  margin-bottom: -350rpx;
+  padding: 5%;
+  width: 100%;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background:url("https://img0.baidu.com/it/u=1548838691,2433517277&fm=26&fmt=auto");
+}
+
+.topImg{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 50rpx;
+  margin-left: 25rpx;
+  position: absolute;
+  z-index: 1;
+}
+
+.cloud {
+  width: 200px;
+  height: 60px;
+  background: linear-gradient(10deg, #eeb8f3 20%, #ccddfd, #e6c8d0);
+  border-radius: 200px;
+  -moz-border-radius: 200px;
+  -webkit-border-radius: 200px;
+  position: relative;
+}
+
+.cloud:before,
+.cloud:after {
+  content: '';
+  position: absolute;
+  box-shadow:3rpx 10rpx 10rpx 3rpx  #eeb8f3;
+  background: linear-gradient(10deg, #eeb8f3 20%, #ccddfd, #e6c8d0);
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+}
+
+.cloud:after {
+  width: 120px;
+  height: 120px;
+  top: -55px;
+  left: auto;
+  right: 15px;
+}
+
+.x1 {
+  -webkit-animation: moveclouds 15s linear infinite;
+  -moz-animation: moveclouds 15s linear infinite;
+  -o-animation: moveclouds 15s linear infinite;
+}
+
+.x2 {
+  left: 200px;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+  opacity: 0.6;
+  /*opacity proportional to the size*/
+  /*Speed will also be proportional to the size and opacity*/
+  /*More the speed. Less the time in 's' = seconds*/
+  -webkit-animation: moveclouds 25s linear infinite;
+  -moz-animation: moveclouds 25s linear infinite;
+  -o-animation: moveclouds 25s linear infinite;
+}
+
+@-webkit-keyframes moveclouds {
+  0% {
+    margin-left: 1000px;
+  }
+
+  100% {
+    margin-left: -1000px;
+  }
+}
+
+/* @-moz-keyframes moveclouds {
+  0% {
+    margin-left: 1000px;
+  }
+
+  100% {
+    margin-left: -1000px;
+  }
+} */
+
+/* @-o-keyframes moveclouds {
+  0% {
+    margin-left: 1000px;
+  }
+
+  100% {
+    margin-left: -1000px;
+  }
+} */
+
+.box {
+  position: absolute;
+  background-color: #ffffff;
+  margin-top: 150rpx;
+  height: 300rpx;
+  width: 100%;
+  z-index: 1;
+}
+
+/* 用户个人形象盒子 */
+.box .userBox {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.box .userBox .topBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box .userBox .topBox .userImg {
+  margin-top: -130rpx;
+}
+
+.box .userBox .topBox .userImg .img1 {
+  border-radius: 100%;
+  background: #eeeeee;
+  position: absolute;
+  z-index: 1;
+  width: 45rpx;
+  height: 45rpx;
+  left: 170rpx;
+}
+
+.box .userBox .topBox .userImg .img2 {
+  position: relative;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 100%;
+}
+
+.box .userBox .topBox .userName {
+  margin-top: -10rpx;
+  font-size: 35rpx;
+  font-weight: 670;
+}
+
+.box .userBox .topBox .focus {
+  width: 150rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 660;
+  border-radius: 50rpx;
+  background-color: #0753A2;
+}
+
+.box .userBox .topBox .focus1 {
+  width: 150rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 660;
+  border-radius: 50rpx;
+  background-color: #530e8b;
+}
+
+.box .userBox .topBox .direct {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.box .userBox .bottomBox {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+  font-weight: 550;
+  color: #000000;
+}
+
+.box .userBox .messageBox {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.box .userBox .messageBox .messageItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+}
+
+.box .userBox .messageBox .messageItem .itemNum {
+  font-size: 38rpx;
+  font-weight: 700;
+  margin-bottom: 10rpx;
+}
+
+.box .userBox .messageBox .messageItem .itemName {
+  font-size: 30rpx;
+}
+
+.box .userBox .messageBox .line {
+  width: 10rpx;
+  height: 100rpx;
+  background-color: #e4e4e4;
+}
+
+.box .line {
+  width: 100%;
+  height: 20rpx;
+  /* background-color: #e4e4e4; */
+}
+
+/* 文章列表 */
+.allArticle .Title {
+  padding-top: 20rpx;
+  border-top: 1rpx solid #eeeeee;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: -30rpx;
+  color: #666666;
+  font-size: 28rpx;
+}
+
+.allArticle .article {
+  margin: 5%;
+}
+
+.allArticle .userBox {
+  margin-left: -5%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.allArticle .topBoxLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.allArticle .topBoxLeft image {
+  border-radius: 100%;
+  width: 90rpx;
+  height: 90rpx;
+  margin-top: 10rpx;
+  margin-right: 40rpx;
+}
+
+
+.allArticle .userDetail .userName {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.allArticle .userDetail .time {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.allArticle .userBox .topBoxImg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.allArticle .articleListDetail {
+  display: flex;
+  flex-direction: column;
+}
+
+.allArticle .articleListDetail .title {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.allArticle .articleListDetail .articleDetail {
+  display: flex;
+  flex-direction: row;
+}
+
+.allArticle .articleListDetail .articleDetail .articleDec {
+  width: 65%;
+  height: 110rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: box;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.allArticle .articleListDetail .articleDetail image {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width: 35%;
+  height: 110rpx;
+}
+
+.allArticle .toolBox {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+
+.allArticle .toolBox image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+}
+
+.allArticle .toolRight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.allArticle .article .line {
+  margin-top: 20rpx;
+  /* border-bottom: 20rpx solid #eeeeee; */
+  box-shadow: 1rpx 1rpx 1rpx 1rpx #bfbfbf;
+  border-radius: 10rpx;
+}
+
+/* 暂无更多内容 */
+.none{
+  margin-bottom: 30rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666666;
+}

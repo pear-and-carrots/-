@@ -1,0 +1,139 @@
+<view class="topNav">
+  <view wx:for="{{navList}}" bindtap="nav" data-id="{{item.id}}" class="nav{{topNavId === index?'active':''}}">
+    <picker disabled="{{index !== 0}}" bindchange="bindPicker" value="{{index}}" range="{{array}}">
+      <text>{{item.name}}</text>
+      <text style="font-size: 22rpx" wx:if="{{index === 0}}">({{array[arrayIndex]}})</text>
+    </picker>
+  </view>
+</view>
+
+<!-- 封面 -->
+<view class="mine-list major" wx:if="{{topNavId === 0 || topNavId === 2}}">
+  <view class="input-block tap-list">
+    <view class="major-list">
+      <view class="major-item" wx:if="{{articleCover.length !== 0}}" bindtap="previewImg">
+        {{articleCover}}</view>
+      <view bindtap="addImg" class="noSign" wx:if="{{articleCover.length === 0}}">添加封面*</view>
+    </view>
+    <view class="more">
+      <image bindtap="addImg" wx:if="{{articleCover.length === 0}}" style="margin-left:8rpx;width:38rpx;height:38rpx"
+        src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634730547423.png"></image>
+      <image bindtap="addImg" wx:if="{{articleCover.length !== 0}}" style="margin-left:8rpx;width:38rpx;height:38rpx"
+        src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634730572153.png"></image>
+    </view>
+  </view>
+</view>
+<!-- 添加标签 -->
+<view wx:if="{{topNavId === 0}}" class="mine-list major">
+  <view class="input-block tap-list">
+    <view class="major-list" catchtap="viewCases">
+      <view class="major-item" wx:for="{{signList}}" wx:key="index" wx:if="{{item.active}}">
+        {{item.signName}}</view>
+      <view class="noSign" wx:if="{{sign.length == 0}}">添加标签*</view>
+    </view>
+    <view class="more" catchtap="viewCases">
+      <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636549967276.png"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 文章类型 -->
+<view class="titleInput" style="" wx:if="{{topNavId != 2}}">
+  <view style="width: 30%;color:#666666;font-size: 30rpx">文章类型*</view>
+  <radio-group bindchange="radioChange" style="width: 50%;display: flex;flex-direction: row;justify-content: space-between;font-size: 30rpx">
+    <label  class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+      <view class="weui-cell__hd">
+        <radio value="{{item.value}}"/>
+      </view>
+      <view class="weui-cell__bd">{{item.name}}</view>
+    </label>
+  </radio-group>
+</view>
+
+<!-- 添加标题 -->
+<input class="titleInput" bindinput="bindTitle" placeholder="标题*" />
+<!-- 视频描述 -->
+<textarea wx:if="{{topNavId === 0 && arrayIndex == 1}}" class="titleArea" bindinput="bindArea" placeholder="请描述您的图片*" />
+<textarea wx:if="{{topNavId === 1}}" class="titleArea" bindinput="bindArea" placeholder="请描述您的视频*" />
+<textarea wx:if="{{topNavId === 2}}" style="margin-bottom: 150rpx" class="titleArea" bindinput="bindArea" placeholder="请描述您的话题*" />
+<!-- 发布帖子 -->
+<block wx:if="{{topNavId === 0}}">
+  <!-- 富文本 -->
+<view class="container" style="height:{{editorHeight}}px;" wx:if="{{topNavId === 0 && arrayIndex == 0}}">
+  <editor show-img-toolbar id="editor"  bindinput="input" class="ql-container" placeholder="{{placeholder}}" bindstatuschange="onStatusChange" bindready="onEditorReady">
+  </editor>
+</view>
+
+<view class="toolbar" catchtouchend="format" style="bottom: {{isIOS ? keyboardHeight : 0}}px" wx:if="{{topNavId === 0 && arrayIndex == 0}}">
+  <i class="iconfont icon-charutupian" catchtouchend="insertImage"></i>
+  <i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
+  <i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header" data-value="{{3}}"></i>
+  <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
+  <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
+  <i class="iconfont icon-zitixiahuaxian {{formats.underline ? 'ql-active' : ''}}" data-name="underline"></i>
+  <i class="iconfont icon--checklist" data-name="list" data-value="check"></i>
+  <i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
+  <i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
+</view>
+<!-- 图片九宫格拖拽 -->
+<view wx:if="{{topNavId === 0 && arrayIndex == 1}}" class="movaeBoxTitle">请上传您的作品*</view>
+<view class="container" style="transform:scale(0.94,0.94);" wx:if="{{topNavId === 0 && arrayIndex == 1}}">
+<movable-area class="movable-area" style="min-height:{{imageWitdh}}px;height:{{areaHeight}}px">
+  <view class="image-choose-container">
+    <view class="image-item" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px" wx:for="{{images}}"
+      wx:for-item="url" wx:key="url" data-url="{{url}}" data-index="{{index}}" bindlongpress='handleLongTap'
+      bindtouchend='handleTouchEnd' catchtouchmove='handleTouchMove'>
+      <image src="{{url}}" mode="aspectFill" bindtap="handlePreview" data-index="{{index}}" data-url="{{url}}"></image>
+      <view class="close" bindtap="handleDelete" data-index="{{index}}">X</view>
+    </view>
+    <view class="add-button" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px"
+      wx:if="{{images.length >= 0 &&images.length < 9}}" bindtap="handleChooseImage">+</view>
+    <view style="width:{{imageWitdh}}px;border: none" class="image-item image-item-temp" wx:if="{{images.length%3==1}}"></view>
+  </view>
+  <movable-view class="movable-view" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px" hidden="{{hidden}}"
+    x="{{x}}" y="{{y}}" direction="all" damping="{{5000}}" friction="{{1}}">
+    <image src="{{currentImg}}" wx:if="{{currentImg.length>0}}"></image>
+  </movable-view>
+</movable-area>
+</view>
+</block>
+
+<!-- 分享视频 -->
+<block wx:if="{{topNavId === 1}}">
+  <!-- 视频 S -->
+  <view class="img-li" wx:if="{{src == ''}}" bindtap="chooseVideo">
+    <image mode="widthFix" class="uploading-icon"
+      src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636897489514.png"></image>
+  </view>
+  <!-- 上传列表 -->
+  <view class="upload-video" style="margin-bottom: 150rpx">
+    <block wx:if="{{src != ''}}">
+      <video src="{{src}}" class="img-li" bindlongpress="deleteVideo"></video>
+      <view class="text">(长按删除视频)</view>
+    </block>
+  </view>
+</block>
+
+<!-- 发布 -->
+<button bindtap="sumbit">发布</button>
+
+<!-- 选择标签蒙版 -->
+<view class="popup-wrap" wx:if="{{signShow}}">
+  <view class="popup-bg" catchtap="viewCases"></view>
+  <view class="popup check-result-box major">
+    <view class="popup-tit">
+      <text>文章标签</text>
+      <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634730238485.png" catchtap="viewCases">
+      </image>
+    </view>
+    <view class="major-list">
+      <view data-id="{{item.id}}" bindtap="actionActive" class="major-item {{item.active?'active':''}}"
+        wx:for="{{signList}}" wx:key="index">{{item.signName}}</view>
+      <!-- <input class="major-item-input" bindinput="bindSign" focus value="{{placeholder}}" placeholder="标签" type="text" />
+      <view class="major-item-input" style="background-color: rgb(225, 241, 255);color:#000" bindtap="sureSign">
+        确定
+        <image style="width:40rpx;height:40rpx" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634730510101.png"></image>
+      </view> -->
+    </view>
+  </view>
+</view>

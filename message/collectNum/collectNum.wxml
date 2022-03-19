@@ -1,0 +1,45 @@
+<view class="notice" wx:for="{{list}}"  wx:if="{{notice === 1}}">
+  <image style="border: 5rpx solid #eeebeb;" src="{{item.photo}}"></image>
+  <view class="detail" bindtap="gotoDec" data-textId="{{item.textId}}">
+    <view class="kindBox">
+      <view class="kindName">{{item.name}}</view>
+    </view>
+    <view class="dec">
+      点赞了你的帖子 {{item.createTime}}
+    </view>
+  </view>
+</view>
+<view class="notice" wx:for="{{list}}" wx:if="{{notice === 2}}">
+  <image style="border: 5rpx solid #eeebeb;" src="{{item.photo}}"></image>
+  <view class="detail">
+    <view class="kindBox">
+      <view class="kindName">{{item.name}}</view>
+    </view>
+    <view class="dec">
+      评论了你的帖子 {{item.createTime}}
+    </view>
+      <view class="comment">{{item.context}}</view>
+      <view class="toolBox">
+        <view class="replayTool" bindtap="replay" data-id="{{item.fistId}}">
+          <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634727795633.png"></image>
+          <view class="replay">回复评论</view>
+        </view>
+        <!-- <image src="../../images/love1.png"></image> -->
+        <!-- <image src="../../images/love.png"></image> -->
+      </view>
+  </view>
+</view>
+<!-- 暂无更多内容 -->
+<view class="none" wx:if="{{list.length === 0}}">
+  <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634729254117.png"></image>
+  <view>
+    暂无更多内容
+  </view>
+</view>
+
+<view class="bottomInput" wx:if="{{showInput}}">
+  <input bindinput="input" placeholder="输入评论内容" />
+  <view bindtap="publishSecondComment">
+    发送
+  </view>
+</view>

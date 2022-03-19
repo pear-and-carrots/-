@@ -1,0 +1,88 @@
+.historyBox{
+  border-top: 1rpx solid #666666;
+  padding-top: 40rpx;
+  margin-top: 40rpx;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.historyBox .topBox{
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.historyBox .topBox image{
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.historyBox .item{
+  width: 100%;
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.historyBox .item .itemName{
+  font-size: 26rpx;
+  margin: 10rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  border-radius: 50rpx;
+  border: 1rpx solid #a3a3a3;
+}
+
+.historyBox .item .none{
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.line{
+  margin-left: -5%;
+  margin-top: 5%;
+  width: 100%;
+  height: 20rpx;
+  background-color: #f5f5f5;
+}
+
+/* 探索发现 */
+.findBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.findBox .title{
+  margin-top: 30rpx;
+  font-weight: 700;
+}
+
+.findBox .item{
+  width: 100%;
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.findBox .item .itemName{
+  font-size: 28rpx;
+  width: 50%;
+  text-align: start;
+  margin-top: 30rpx;
+}
+
+.findBox .item image{
+  margin-bottom: -30rpx;
+  margin-left: -30rpx;
+  margin-top: -30rpx;
+  width: 100rpx;
+  height: 100rpx;
+}

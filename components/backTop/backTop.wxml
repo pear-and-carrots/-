@@ -1,0 +1,3 @@
+<view class='back-top' bindtap="handleBackTop">
+    <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634727607826.png"/>
+</view>

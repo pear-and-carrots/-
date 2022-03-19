@@ -1,0 +1,41 @@
+.picker{
+  margin: 5%;
+  padding: 20rpx;
+  border: 1rpx solid #e0e0e0;
+}
+
+.pickerText{
+  color: #666666;
+  font-size: 28rpx;
+}
+
+.textAare{
+  margin: 5%;
+  padding: 20rpx;
+  font-size: 28rpx;
+  border: 1rpx solid #e0e0e0;
+}
+
+.textAare image{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.textAare input{
+  padding: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  border: 1rpx solid #e0e0e0;
+}
+
+.textAare .text{
+  color: #666666;
+  font-size: 28rpx;
+}
+
+.button{
+  font-weight: 550;
+  background-color: #000;
+  color: #ffffff;
+  border-radius: 50rpx;
+}

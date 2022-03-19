@@ -1,0 +1,35 @@
+page{
+  background-color: #eeeeee;
+}
+
+.userList{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10rpx;
+  border: 1rpx solid #b4b0b0;
+  border-radius: 50rpx;
+  background: #ffffff;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.userList image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+}
+
+.userList .userName {
+  font-size: 28rpx;
+  font-weight: 540;
+}
+.userList .userSign {
+  font-size: 26rpx;
+  margin-top: 15rpx;
+  color: #666666;
+}

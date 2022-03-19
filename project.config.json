@@ -1,0 +1,225 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.20.2",
+  "appid": "wx35ed961fcfb6698c",
+  "projectname": "%E7%BD%91%E6%98%93%E4%BA%91%E4%BF%A1",
+  "cloudfunctionTemplateRoot": "",
+  "watchOptions": {
+    "ignore": []
+  },
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/home_page/home_page",
+          "pathName": "pages/home_page/home_page",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "components/search/search",
+          "pathName": "components/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/recommend/recommend",
+          "pathName": "pages/recommend/recommend",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/message/message",
+          "pathName": "pages/message/message",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "message/notice/notice",
+          "pathName": "message/notice/notice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "message/collectNum/collectNum",
+          "pathName": "message/collectNum/collectNum",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/about/about",
+          "pathName": "pages/about/about",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "about/Modify/Modify",
+          "pathName": "about/Modify/Modify",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/article/article",
+          "pathName": "pages/article/article",
+          "query": "articleId=997159a044&userId=18ffedb4-0",
+          "scene": null
+        },
+        {
+          "name": "pages/comment/comment",
+          "pathName": "pages/comment/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/add/add",
+          "pathName": "pages/add/add",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "components/editor/editor",
+          "pathName": "components/editor/editor",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "home_page/Personal/Personal",
+          "pathName": "home_page/Personal/Personal",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "about/userList/userList",
+          "pathName": "about/userList/userList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "about/message/message",
+          "pathName": "about/message/message",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "home_page/direct/direct",
+          "pathName": "home_page/direct/direct",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "home_page/search/search",
+          "pathName": "home_page/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "components/addArticle/addArticle",
+          "pathName": "components/addArticle/addArticle",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/recentchat/recentchat",
+          "pathName": "pages/recentchat/recentchat",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "components/recentchat/recentchat",
+          "pathName": "components/recentchat/recentchat",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "about/about/about",
+          "pathName": "about/about/about",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/b",
+          "pathName": "components/bottomWindow/bottomWindow",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "components/flower/flower",
+          "pathName": "components/flower/flower",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "about/question/question",
+          "pathName": "about/question/question",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

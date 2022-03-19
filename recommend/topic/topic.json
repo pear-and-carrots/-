@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "bottomWindow": "../../components/bottomWindow/bottomWindow"
+  }
+}

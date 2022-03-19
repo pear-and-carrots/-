@@ -1,0 +1,67 @@
+<form bindsubmit="formSubmit" catchreset="formReset">
+  <view class="box">
+    <view class="itemBox" bindtap="reUserImg">
+      <view class="itemName">头像</view>
+      <image src="{{userData.photo}}"></image>
+    </view>
+    <view class="itemBox">
+      <view class="itemName">昵称</view>
+      <input name="name" value="{{userData.name}}" placeholder="请输入" />
+    </view>
+    <view class="itemBox">
+      <view class="itemName">性别</view>
+      <input name="gender" value="{{userData.gender}}" placeholder="请输入" />
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="itemBox">
+      <view class="itemName">学校</view>
+      <input name="school" value="{{userData.school}}" placeholder="请输入" />
+    </view>
+    <view class="itemBox">
+      <view class="itemName">专业</view>
+      <input name="major" value="{{userData.major}}" placeholder="请输入" />
+    </view>
+    <view class="itemBox">
+      <view class="itemName">生日</view>
+      <picker mode="date" value="{{date}}" start="1920-01-01" end="2030-12-31" bindchange="bindDateChange">
+        <view class="picker">
+          <text wx:if="{{date.length === 0}}" style="color: #666666">日期</text> {{date}}
+        </view>
+      </picker>
+      <!-- <input name="birth" value="{{userData.birth}}" placeholder="请输入" /> -->
+    </view>
+    <view class="itemBox">
+      <view class="itemName">地区</view>
+      <input name="area" value="{{userData.area}}" placeholder="请输入" />
+    </view>
+    <view class="itemBox">
+      <view class="itemName">个人简介</view>
+      <input name="selfSign" value="{{userData.selfSign}}" placeholder="请输入" />
+    </view>
+  </view>
+  <view class="box">
+    <view class="itemBox">
+      <view class="itemName">QQ</view>
+      <input name="qq" value="{{userData.qq}}" placeholder="请输入" />
+    </view>
+    <view class="itemBox">
+      <view class="itemName">微信</view>
+      <input name="wechat" value="{{userData.wechat}}" placeholder="请输入" />
+    </view>
+    <view class="itemBox">
+      <view class="itemName">电话</view>
+      <input name="phone" value="{{userData.phone}}" placeholder="请输入" />
+    </view>
+    <view class="itemBox">
+      <view class="itemName">邮箱</view>
+      <input name="email" value="{{userData.email}}" placeholder="请输入" />
+    </view>
+  </view>
+
+  <view class="btnArea">
+    <button class="reset" formType="reset">重置</button>
+    <button class="submit" type="primary" formType="submit">修改</button>
+  </view>
+</form>

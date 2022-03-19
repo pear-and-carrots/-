@@ -1,0 +1,33 @@
+<!-- 顶部信息 -->
+<view class="topBox">
+  <view class="top1">
+    <image bindtap="reback" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636554768777.png"></image>
+    <image src="../../images/userImg.png"></image>
+    <view>网易小云</view>
+  </view>
+  <view class="top2">
+    <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636554787743.png"></image>
+    <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636554802810.png"></image>
+  </view>
+</view>
+<!-- 中间信息 -->
+<view class="middleBox">
+  <!-- 左边 -->
+  <view class="leftMessage">
+    <image class="userImg" src="../../images/userImg.png"></image>
+    <view class="text">对话框啊对话框</view>
+  </view>
+  <!-- 右边 -->
+  <view class="rightMessage">
+    <view class="text">
+      <image bindtap="previewImage" mode="widthFix" src="../../images/video.png"></image>
+    </view>
+    <image class="userImg" src="../../images/userImg.png"></image>
+  </view>
+</view>
+<!-- 底部工具 -->
+<view class="bottomBox">
+  <input bindinput="input" placeholder="发送内容" />
+  <image bindtap="setImg" wx:if="{{content.length == 0}}" src="../../images/addImg.png"></image>
+  <view wx:if="{{content.length != 0}}" class="button">发送</view>
+</view>

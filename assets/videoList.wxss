@@ -1,0 +1,134 @@
+.videoBox{
+  border-top: 1rpx solid #eeeeee;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.userBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 95%;
+  padding: 2.5%;
+}
+
+.userBox image {
+  border-radius: 100%;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.userBox .userDetail {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.userBox .userDetail .userName {
+  font-size: 30rpx;
+  font-weight: 660;
+  margin-bottom: 10rpx;
+}
+
+.userBox .userDetail .userdec {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.userBox .toolBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userBox .toolBox .focus {
+  border: 2rpx solid #F78E1F;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #F78E1F;
+  font-size: 30rpx;
+  border-radius: 50rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  margin-right: 30rpx;
+}
+
+.userBox .toolBox .alreadyFocus {
+  border: 2rpx solid #530e8b;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #530e8b;
+  font-size: 30rpx;
+  border-radius: 50rpx;
+  padding-left: 18rpx;
+  padding-right: 18rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  margin-right: 30rpx;
+}
+
+.userBox .toolBox image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/* 视频区域 */
+
+.video {
+  width: 100%;
+}
+
+.videoDetail{
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.videoDetail .title{
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.videoDetail .dec{
+  font-size: 24rpx;
+  color: #666666;
+  height: 35rpx;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: box;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+/* 视频详情 */
+.bottomTool{
+  background-color: #eeeeee;
+  border-top: 1rpx solid #ffffff;
+  border-bottom: 1rpx solid #ffffff;
+  padding-left: 3%;
+  padding-right: 3%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bottomTool image{
+  margin-right: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.bottomTool .item{
+  width: 120rpx;
+  padding: 10rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-size: 26rpx;
+  font-weight: 550;
+}

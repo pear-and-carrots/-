@@ -1,0 +1,72 @@
+<!-- 一级评论 -->
+<!-- 评论区 -->
+<view class="contentBox">
+  <view class="allContentTop">评论详情</view>
+  <!-- 一级评论 -->
+  <view class="userBox">
+    <image src="{{author.photo}}"></image>
+    <view class="userDetail">
+      <view class="userName">{{commentList.name}}<text
+          style='color: #666666;font-size: 24rpx;font-weight: 500;'>{{commentList.createTime}} 发表</text></view>
+      <view class="content">{{commentList.firstComment}}</view>
+    </view>
+    <image class="loveImg" data-articleCommentId="{{commentList.firstId}}" bindtap="supportComment"
+      wx:if="{{commentList.isSupport === true}}" src="../../images/love.png"></image>
+    <image class="loveImg" data-articleCommentId="{{commentList.firstId}}" bindtap="supportComment"
+      wx:if="{{commentList.isSupport === false}}" src="../../images/love1.png"></image>
+    <view style="font-size:28rpx;font-weight:600;margin-top: -20rpx;margin-left: -25rpx;">{{commentList.supportNum}}
+    </view>
+    <view class="toolBox">
+      <image style="width: 50rpx;height: 50rpx;margin-top: 15rpx;margin-left: 20rpx;margin-right:-5rpx"
+        src="../../images/content1.png" data-data="{{commentList}}" bindtap="bindInput"></image>
+    </view>
+  </view>
+</view>
+
+<view class="line"></view>
+
+
+<!-- 评论区 -->
+<view class="contentBox">
+  <view wx:if="{{commentList.length !== 0}}" class="otherContentTop">相关回复共{{commentList.secondComDescs.length}}条</view>
+
+  <!-- 暂无更多评论 -->
+  <view wx:if="{{commentList.length === 0}}">暂无更多评论</view>
+  <!-- 二级评论 -->
+  <block wx:if="{{commentList.length !== 0}}" wx:for="{{commentList.secondComDescs}}">
+    <view class="SecondUserBox">
+      <image style="width: 60rpx;height: 60rpx" src="{{item.commentPhoto}}"></image>
+      <view class="userDetail">
+        <view class="userName">{{item.commentName}} <text
+            style="color: #666666;font-size: 24rpx;font-weight: 500;">{{item.createTime}} 发表</text></view>
+        <view class="content">
+          <view class="dec" wx:if="{{item.commentedName != null}}"
+            style="color: #660099;font-weight: 600;margin-right: 15rpx">@{{item.commentedName}}</view>
+          <view class="dec">{{item.commentText}}</view>
+        </view>
+      </view>
+      <view class="toolBox">
+        <image src="../../images/content1.png" data-data="{{item}}" bindtap="bindInput"></image>
+        <image wx:if="{{item.isSupport === false}}" data-articleCommentId="{{item.secondId}}" bindtap="supportComment"
+          src="../../images/love1.png"></image>
+        <image wx:if="{{item.isSupport === true}}" data-articleCommentId="{{item.secondId}}" bindtap="supportComment"
+          src="../../images/love.png"></image>
+        <view style="font-size:28rpx;font-weight:600;margin-left: 120rpx;margin-top: -45rpx">{{item.supports}}</view>
+      </view>
+    </view>
+    <view class="line"></view>
+  </block>
+</view>
+
+<view class="bottomInput" wx:if="{{isShowBottomInput === true}}">
+  <view class="inputBox">
+    <view class="replayText">@{{name}}</view>
+    <input bindinput="input" value="{{commentText}}" focus="true" />
+  </view>
+  <view bindtap="publishSecondComment" wx:if="{{commentText.length !== 0}}">
+    发送
+  </view>
+  <view bindtap="publishSecondComment1" wx:if="{{commentText.length === 0}}">
+    取消
+  </view>
+</view>

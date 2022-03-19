@@ -1,0 +1,53 @@
+.box{
+  padding: 20rpx;
+  background-color: #f3f3f3;
+  font-size: 28rpx;
+  margin-bottom: 50rpx;
+}
+
+.box .itemBox{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ffffff;
+  padding: 20rpx;
+  margin: 20rpx;
+}
+
+.box .itemBox image{
+  border-radius: 100%;
+  border: 2rpx solid #ffffff;
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.box .itemBox input{
+  text-align: end;
+}
+
+.box .itemBox .itemName{
+  width: 50%;
+}
+
+/* 按钮 */
+.btnArea{
+  display: flex;
+  flex-direction: row;
+}
+
+.btnArea .submit{
+  width: 30%;
+  background-color: rgb(61, 71, 61);
+  color: #ffffff;
+  border-radius: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.btnArea .reset{
+  width: 30%;
+  background-color: rgb(163, 64, 60);
+  color: #ffffff;
+  border-radius: 50rpx;
+  margin-bottom: 50rpx;
+}

@@ -1,0 +1,121 @@
+<!-- 文章 -->
+<view class="articleBox">
+  <image style="width: 100%" mode="widthFix" src="{{list.articleCover}}"></image>
+  <view class="userBox">
+    <image src="{{list.photo}}" bindtap="gotoDetail"></image>
+    <view class="userDetail">
+      <view class="userName">{{list.userName}}</view>
+      <view class="time">{{list.deplayTime}} 发表</view>
+    </view>
+    <view class="toolBox">
+      <view bindtap="followPeople" wx:if="{{list.isFollow === false}}" class="focus">关注</view>
+      <view bindtap="followPeople" wx:if="{{list.isFollow === true}}" class="alreadyFocus">已关注</view>
+      <!-- 绑定菜单 -->
+      <image bindtap="bindMenu" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634727351917.png">
+      </image>
+    </view>
+  </view>
+  <view class="title">{{list.title}}</view>
+  <view class="decBox">
+    <rich-text class="dec" nodes="{{list.context}}"></rich-text>
+    <rich-text class="dec" nodes="{{list.articleDescption}}"></rich-text>
+  </view>
+  <view class="decBox">
+    <image style="width: 100%" wx:for="{{list.picture}}" bindtap="handlePreview" mode="widthFix" src="{{item}}"></image>
+  </view>
+  <view class="articleType">文章类型：{{list.original}}</view>
+</view>
+
+<view class="line"></view>
+
+<!-- 评论区 -->
+<view class="contentBox">
+  <block wx:if="{{contentList.length === 0}}">
+    <view class="showInput" bindtap="showInput">
+      ------ 我要坐沙发 ------
+    </view>
+  </block>
+  <block wx:if="{{contentList.length !== 0}}">
+    <view class="allContentNum">共{{contentList.length}}条评论</view>
+    <!-- 一级评论 -->
+    <block wx:for="{{contentList}}">
+      <view class="heightBox" data-fistid="{{item.fistId}}" bindtap="setFirtId">
+        <view class="userBox">
+          <image src="{{item.photo}}"></image>
+          <view class="userDetail">
+            <view class="box">
+              <view class="userName">{{item.commentName}}</view>
+              <view class="time">{{item.createTime}}</view>
+            </view>
+            <view class="content">
+              <view class="dec">{{item.commentText}}</view>
+            </view>
+          </view>
+          <view class="toolBox">
+            <!-- 评论 -->
+            <image bindtap="gotoComment" data-commentName="{{item.commentName}}" data-commentText="{{item.commentText}}"
+              data-createTime="{{item.createTime}}" data-isSupport="{{item.isSupport}}" data-photo="{{item.photo}}"
+              data-userId="{{item.userId}}" data-fistId="{{item.fistId}}" src="../../images/content1.png"></image>
+            <text>{{item.secondComment.length}}</text>
+            <!-- 点赞 -->
+            <image bindtap="supportComment" wx:if="{{item.isSupport === false}}" data-articleCommentId="{{item.fistId}}"
+              src="../../images/love1.png"></image>
+            <image bindtap="supportComment" wx:if="{{item.isSupport === true}}" data-articleCommentId="{{item.fistId}}"
+              src="../../images/love.png"></image>
+            <text>{{item.supports}}</text>
+          </view>
+        </view>
+        <!-- 二级评论 -->
+        <view class="sBox" wx:if="{{item.secondComment.length !== 0}}">
+          <view class="SecondUserBox" wx:for="{{item.secondComment}}" wx:if="{{item.secondComment.length !== 0}}">
+            <image style="border-radius: 100%;" src="{{item.photo}}" wx:if="{{index < 2}}" hidden="{{index > 1}}">
+            </image>
+            <view class="userDetail" wx:if="{{index < 2}}" hidden="{{index < 2}}">
+              <view class="box">
+                <view class="userName">{{item.secondName}}</view>
+                <view class="time">{{item.createTime}} 发表</view>
+              </view>
+              <view class="content">
+                <view class="dec">{{item.comment}}</view>
+              </view>
+              <view bindtap="goto" class="openList" wx:if="{{index == 1}}">
+                展开更多评论
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="line"></view>
+      </view>
+    </block>
+  </block>
+
+  <!-- 底部工具 -->
+  <view class="bottomBox">
+    <view class="input"
+      style="width:{{width}}rpx;height:{{height}}rpx;transition:width 1s;-moz-transition:width 1s;-webkit-transition:width 1s;-o-transition:width 1s;"
+      bindtap="showInput">
+      <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1636548973653.png"></image>
+      <input bindinput="input" value="{{comment}}" placeholder="输入评论..." />
+    </view>
+    <block wx:if="{{showInput === true}}">
+      <view wx:if="{{comment.length === 0}}" bindtap="hideContent">取消</view>
+      <view wx:if="{{comment.length !== 0}}" bindtap="publishComment">发送</view>
+      <!-- <view>发送</view> -->
+    </block>
+    <block wx:if="{{showInput === false}}">
+      <image bindtap="supportArticle" wx:if="{{list.isSupport === true}}" src="../../images/love.png"></image>
+      <image bindtap="supportArticle" wx:if="{{list.isSupport === false}}" src="../../images/love1.png"></image>
+      {{list.supports}}
+      <image bindtap="collectionArticle" wx:if="{{list.isCollection === true}}" src="../../images/collect11.png">
+      </image>
+      <image bindtap="collectionArticle" wx:if="{{list.isCollection === false}}" src="../../images/collect2.png">
+      </image>
+      {{list.collections}}
+      <image src="../../images/share.png"></image>
+      <button class="button" plain open-type="share"></button>
+      分享
+    </block>
+  </view>
+</view>
+<bottomWindow authorUserId="{{authorUserId}}" author="{{author}}" authorTitle="{{authorTitle}}"
+  showModalStatus="{{showModalStatus}}"></bottomWindow>

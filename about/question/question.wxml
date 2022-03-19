@@ -1,0 +1,8 @@
+<view class="box" wx:for="{{list}}">
+  <view class="question">
+    {{index + 1}} . {{item.question}}
+  </view>
+  <view class="answer" style="color:{{item.answer === '点击查看'? 'red' : ''}}" data-answer="{{item.answer}}" bindtap="goto">
+   答： {{item.answer}}
+  </view>
+</view>

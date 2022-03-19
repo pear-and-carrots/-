@@ -1,0 +1,116 @@
+.notice {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-bottom: 40rpx;
+  padding-top: 40rpx;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.notice image {
+  border-radius: 100%;
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 30rpx;
+  margin-top: 5rpx;
+}
+
+.notice .detail {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.notice .detail .kindBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.notice .detail .kindBox .kindName {
+  font-size: 30rpx;
+  font-weight: 550;
+}
+
+.notice .detail .dec {
+  font-size: 28rpx;
+  color: #666666;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.notice .detail .comment {
+  font-size: 28rpx;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 评论 */
+.notice .detail .toolBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.notice .detail .toolBox image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 0;
+}
+
+.notice .detail .toolBox .replayTool {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background-color: #F2F2F2;
+  border-radius: 40rpx;
+  margin-right: 50rpx;
+}
+
+.notice .detail .toolBox .replayTool image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 10rpx;
+  margin-top: 0rpx;
+}
+
+.notice .detail .toolBox .replayTool .replay {
+  font-size: 26rpx;
+  color: #101010;
+}
+
+/* 底部评论框 */
+.bottomInput{
+  width: 100%;
+  background: #e0e0e0;
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
+
+.bottomInput input {
+  padding: 10rpx;
+  border-radius: 10rpx;
+  width: 80%;
+  background-color: #ffffff;
+  margin-right: 20rpx;
+}
+
+.none{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: #666666;
+}

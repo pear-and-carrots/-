@@ -1,0 +1,80 @@
+<view class="loginBox">
+  <view class="title">Welcome back!</view>
+  <view class="topNav">
+    <view style="border-top-left-radius: {{item.lradius}}rpx;border-top-right-radius: {{item.rradius}}rpx;"
+      class="{{navId === index?'navItem':'navItemActive'}}" wx:for="{{navList}}" data-id="{{item.id}}" bindtap="nav">
+      {{item.name}}</view>
+  </view>
+  <!-- 登录 -->
+  <view wx:if="{{navId === 0}}" class="box">
+    <view class="boxItem">
+      <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728172184.png"></image>
+      <input bindinput="phoneNumber" placeholder="手机号" />
+    </view>
+    <view class="boxItem">
+      <image style="width:40rpx;height:40rpx;margin-right:10rpx" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728230913.png"></image>
+      <input bindinput="password" password="{{isPassword}}" placeholder="密码" />
+      <image wx:if="{{isPassword === true}}" bindtap="showPassword" style="margin-right:-40rpx;"
+        src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728336928.png"></image>
+      <image wx:if="{{isPassword === false}}" bindtap="showPassword" style="margin-right:-40rpx;"
+        src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728294560.png"></image>
+    </view>
+    <image class="loginImg" bindtap="checkLogin" wx:if="{{loginRight !== true}}" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728402276.png"></image>
+    <image class="loginRight" wx:if="{{loginRight === true}}" mode="widthFix" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634729490631.png"></image>
+    <view class="boxItem" bindtap="findPassword" style="font-size:24rpx">找回密码</view>
+  </view>
+  <!-- 注册 -->
+  <view wx:if="{{navId === 1}}" class="box">
+    <!-- 获取验证码 -->
+    <view class="boxItem">
+      <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728172184.png"></image>
+      <input style="width:68%" bindinput="newPhone" placeholder="手机号" />
+      <!-- <view class="checkCode" bindtap="getCheckCode">获取验证码</view> -->
+    </view>
+    <!-- 输入验证码 -->
+    <view class="boxItem" wx:if="{{showCodeNum === true}}">
+      <image style="margin-right:5rpx" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728585380.png"></image>
+      <input bindinput="checkCode" placeholder="验证码" />
+      <view style="width:10rpx">{{num}}</view>
+    </view>
+    <!-- 设置密码 -->
+    <view class="boxItem">
+      <image style="width:40rpx;height:40rpx;margin-right:10rpx" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728230913.png"></image>
+      <input bindinput="newPassword" password="{{isPassword}}" placeholder="密码" />
+      <image wx:if="{{isPassword === true}}" bindtap="showPassword" style="margin-right:-40rpx;"
+        src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728336928.png"></image>
+      <image wx:if="{{isPassword === false}}" bindtap="showPassword" style="margin-right:-40rpx;"
+        src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728294560.png"></image>
+    </view>
+    <image class="loginImg" bindtap="register" wx:if="{{registered !== true}}" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634736715585.png">
+    </image>
+    <image class="loginRight" wx:if="{{registered === true}}" mode="widthFix" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634729490631.png"></image>
+  </view>
+  <!-- 找回密码 -->
+  <view wx:if="{{navId === -1}}" class="box">
+    <!-- 输入手机号 -->
+    <view class="boxItem">
+      <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728172184.png"></image>
+      <input style="width:68%" bindinput="getnewPhone" placeholder="手机号" />
+      <!-- <view class="checkCode" bindtap="code">获取验证码</view> -->
+    </view>
+    <!-- 输入验证码 -->
+    <view class="boxItem" wx:if="{{codeNum === true}}">
+      <image style="margin-right:5rpx" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728585380.png"></image>
+      <input bindinput="code" placeholder="验证码" />
+      <view style="margin-right:-30rpx">60</view>
+    </view>
+    <!-- 设置新密码 -->
+    <view wx:if="{{isCode === true}}" class="boxItem">
+      <image style="width:40rpx;height:40rpx;margin-right:10rpx" src="../../images/password.png"></image>
+      <input bindinput="getNewPassword" password="{{isPassword}}" placeholder="设置新密码" />
+      <image wx:if="{{isPassword === true}}" bindtap="showPassword" style="margin-right:-40rpx;"
+        src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728336928.png"></image>
+      <image wx:if="{{isPassword === false}}" bindtap="showPassword" style="margin-right:-40rpx;"
+        src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728294560.png"></image>
+    </view>
+    <view wx:if="{{codeNum === true && isCode !== true}}" class="boxItem" style="font-size:24rpx" bindtap="check">找回
+    </view>
+    <view wx:if="{{isCode === true}}" class="boxItem" bindtap="returnlogin" style="font-size:24rpx">修改</view>
+  </view>
+</view>

@@ -1,0 +1,343 @@
+@import "../../assets/weui.wxss";
+@import "../../assets/iconfont.wxss";
+@import "../../assets/movable.wxss";
+
+page {
+  background-color: #f9fafc;
+}
+
+.topNav {
+  width: 100%;
+  height: 100rpx;
+  border-top: 1rpx solid #e4e2e2;
+  border-bottom: 1rpx solid #e4e2e2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.topNav .nav {
+  width: 50%;
+  text-align: center;
+  line-height: 100rpx;
+  font-weight: 650;
+  color: #666666;
+  border-right: 1rpx solid #e4e2e2;
+}
+
+.topNav .navactive {
+  width: 50%;
+  text-align: center;
+  line-height: 100rpx;
+  border-right: 1rpx solid #e4e2e2;
+  background-color: #6a45ee;
+  color: #ffffff;
+  font-weight: 650;
+}
+
+.titleInput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #ffffff;
+  border: 1rpx solid #e4e2e2;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.weui-cell {
+  padding: 0;
+}
+
+.weui-cell:before{
+  border: 0
+}
+
+/* 没选中时候的样式 */
+radio .wx-radio-input {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+/* 选中时候的样式 */
+radio .wx-radio-input.wx-radio-input-checked {
+  width: 35rpx;
+  height: 35rpx;
+  background: #6a45ee !important;
+  border:2rpx solid #666!important;    
+}
+
+.titleArea {
+  width: 84%;
+  height: 200rpx;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #ffffff;
+  border: 1rpx solid #e4e2e2;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+/* 标签 */
+.input-block {
+  background-color: #fff;
+  border-radius: 10rpx;
+  border: 1rpx solid #E5E5E5;
+  width: 90%;
+  flex: 1 1 50%;
+  height: 40px;
+  box-sizing: border-box;
+  margin-top: 5%;
+  margin-left: 5%;
+  padding-left: 20rpx;
+  display: flex;
+  position: relative;
+}
+
+.input-block input {
+  width: 90%;
+  height: 100%;
+  background: #F5F5F5;
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+}
+
+.major-list {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.major-item {
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 4px 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  border: 1px solid #666666;
+  opacity: 1;
+  border-radius: 4px;
+  margin-left: 12px;
+}
+
+.noSign {
+  font-size: 30rpx;
+  color: #666666;
+}
+
+.more {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.more image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 6rpx;
+  margin-left: 2rpx;
+}
+
+/* 蒙版 */
+.mine-info .major .input-block {
+  display: flex;
+  background: #fff;
+  position: relative;
+}
+
+.mine-info .major .major-list {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.major .major-list .major-item {
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 4px 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #6a45ee;
+  border: 1px solid #6a45ee;
+  opacity: 1;
+  border-radius: 4px;
+  margin-left: 12px;
+}
+
+.popup-wrap .popup {
+  padding: 14px;
+}
+
+.popup-wrap .popup-tit {
+  margin-bottom: 18px;
+}
+
+.popup-wrap .major-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.popup-wrap .major-list .major-item {
+  flex: 0 1 75px;
+  width: 75px;
+  height: 28px;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  overflow-y: auto;
+}
+
+.popup-wrap .major-list .major-item-input {
+  flex: 0 1 75px;
+  width: 75px;
+  height: 28px;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-left: 25rpx;
+  text-align: center;
+}
+
+.popup-wrap .major-list .major-item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.popup-wrap .major-list .major-item.grey {
+  border-color: #666;
+}
+
+.popup-wrap .major-list .major-item.active {
+  border-color: #0da2e7;
+  color: #0da2e7;
+}
+
+/* 富文本 */
+.container {
+  width: 100%;
+}
+
+.ql-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: auto;
+  padding: 20rpx;
+  border-top: 1rpx solid #E5E5E5;
+  background-color: #ffffff;
+}
+
+.ql-active {
+  color: #22C704;
+}
+
+.iconfont {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.toolbar {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: none;
+  border-right: none;
+  background-color: #ffffff;
+}
+
+/* 上传视频 */
+.img-li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.uploading-icon {
+  width: 50%;
+}
+
+/* 视频列表 */
+.upload-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-video .text {
+  margin-top: 20rpx;
+  font-size: 25rpx;
+  color: #666666;
+}
+
+/* 发布按钮 */
+button {
+  margin-top: -100rpx;
+  margin-bottom: 130rpx;
+  border-radius: 100rpx;
+  background-color: black;
+  color: #ffffff;
+}
+
+/* 九宫格拖拽 */
+.container{
+  margin-bottom: 150rpx;
+}
+
+.movaeBoxTitle{
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 40rpx;
+  color: #666666;
+}

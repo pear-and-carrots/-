@@ -1,0 +1,92 @@
+<!-- 用户个性展示 -->
+<view class="fllowerbox">
+  <view class="container">
+  </view>
+  <canvas canvas-id="myCanvas" />
+</view>
+
+<view class="TopBox"></view>
+<view class="userBox">
+  <image class="userImg" src="{{user.photo}}"></image>
+  <view class="delBox">
+    <view class="delTop">
+      <view class="userName">{{user.name}}</view>
+      <view class="constellation">
+        <image src="{{user.constellationUrl}}"></image>
+        <view class="text">{{user.constellation}}</view>
+      </view>
+      <view bindtap="gotoModify" class="repairBox">
+        <view class="text">编辑资料</view>
+        <image mode="widthFix" src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728830181.png">
+        </image>
+      </view>
+    </view>
+    <view class="delBottom">
+      <view class="sign"><text wx:if="{{user.selfSign !== null}}">{{user.selfSign}}</text> <text wx:if="{{user.selfSign === null}}">暂无个人简介</text></view>
+      <view class="DayNum">已加入{{user.totalTime}}天</view>
+    </view>
+  </view>
+</view>
+
+<view class="application">
+  <!-- 数据锦集 -->
+  <view class="dataBox">
+    <view class="box" style="margin-top: 25rpx;margin-bottom: 50rpx">
+      <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634728883664.png"></image>
+      <view class="dataTitle">数据锦集</view>
+    </view>
+    <view class="itemBox">
+      <navigator wx:for="{{userData}}" url="{{item.url}}" class="item">
+        <view class="num">{{item.num}}</view>
+        <view class="name">{{item.name}}</view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="line"></view>
+
+  <!-- 应用区1 -->
+  <view class="appPlay">
+    <view class="itemBox">
+      <navigator wx:for="{{navList1}}" url="{{item.url}}" class="item">
+        <image src="{{item.imgUrl}}" />
+        <view class="name">{{item.name}}</view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="line"></view>
+
+  <!-- 应用区2 -->
+  <view class="appPlay">
+    <view class="itemBox">
+      <navigator bindtap="{{index === 3?'return':''}}" wx:for="{{navList2}}" url="{{item.url}}" class="item">
+        <image src="{{item.imgUrl}}" />
+        <view class="name">{{item.name}}</view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="line"></view>
+
+  <!-- 今日数据 -->
+  <view class="dataBox">
+    <view class="box">
+      <image src="https://haiqian.obs.cn-south-1.myhuaweicloud.com:443/desgin%2F1634729053496.png"></image>
+      <view class="dataTitle">今日数据</view>
+    </view>
+    <view class="numBox">
+      <view class="numItem">
+        <view class="title">今日阅读数</view>
+        <view class="num">{{todyData.readNum}}</view>
+        <view class="yesterday">昨日数据 <text style="font-weight:600">{{todyData.yesterdayReads}}</text></view>
+      </view>
+      <view class="line"></view>
+      <view class="numItem">
+        <view class="title">今日获赞数</view>
+        <view class="num">{{todyData.supports}}</view>
+        <view class="yesterday">昨日数据 <text style="font-weight:600">{{todyData.yesterdaySupports}}</text></view>
+      </view>
+    </view>
+  </view>
+</view>
